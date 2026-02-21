@@ -351,6 +351,7 @@
       margin-top: 10px;
     }
 
+
     .project {
       border: 1px solid #dec7dc;
       background: linear-gradient(160deg, #ffffff 0%, #fbf4fa 100%);
@@ -449,6 +450,16 @@
       gap: 9px;
     }
 
+    .life-subtitle {
+      margin-top: 12px;
+      margin-bottom: 8px;
+      color: #5a2c62;
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+
     .life-photo {
       display: block;
       border-radius: 11px;
@@ -467,8 +478,72 @@
       object-fit: cover;
     }
 
+    .life-collage .life-photo {
+      position: relative;
+    }
+
+    .life-collage .life-photo img {
+      filter: saturate(0.72) contrast(0.9) blur(1.2px);
+      transform: scale(1.03);
+      transition: filter 220ms ease, transform 220ms ease;
+    }
+
+    .life-collage .life-photo::after {
+      content: "Open";
+      position: absolute;
+      right: 8px;
+      bottom: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      background: rgba(20, 12, 40, 0.58);
+      color: #ffffff;
+      border-radius: 999px;
+      padding: 4px 8px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+
+    .life-collage .life-photo:hover img {
+      filter: saturate(0.85) contrast(0.95) blur(0.6px);
+      transform: scale(1.01);
+    }
+
     .life-photo.is-wide {
       grid-column: span 2;
+    }
+
+    .about-note {
+      margin-top: 10px;
+      border: 1px dashed #cfb0cb;
+      border-radius: 10px;
+      background: #fbf2f9;
+      padding: 9px 10px;
+      color: #4a2a57;
+      font-size: 0.9rem;
+    }
+
+    .about-note strong {
+      color: #41214d;
+    }
+
+    .fun-fact-text {
+      display: inline-block;
+      transition: opacity 220ms ease;
+    }
+
+    .quote-list {
+      margin-top: 8px;
+      display: grid;
+      gap: 6px;
+    }
+
+    .quote-line {
+      border-left: 3px solid #b27aad;
+      padding-left: 8px;
+      color: #4c2857;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 0.88rem;
     }
 
     .preview {
@@ -757,6 +832,7 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
+
       .life-layout {
         grid-template-columns: 1fr;
       }
@@ -848,6 +924,7 @@
       .projects-grid {
         grid-template-columns: 1fr;
       }
+
 
       .top {
         align-items: flex-start;
@@ -962,6 +1039,12 @@
             <p>
               I am Zack Xavier G. Refrea, a BSIT SMP student at LSPU. I enjoy building modern web applications from interface to server logic, with focus on readable code, clean layouts, and smooth user experience.
             </p>
+            <div class="about-note">
+              <strong>Fun fact:</strong> <span class="fun-fact-text" data-facts="I am a very big gamer.||I get ultra-competitive in Valorant.||Im a Bit Racist ngl||If Your Ass At games im gonna slur the shit out of you.">I am a very big gamer.</span>
+              <div class="quote-list">
+                <div class="quote-line">"it is what it is"</div>
+              </div>
+            </div>
           </div>
 
           <div class="card life-card" id="life" style="margin-top: 16px;">
@@ -984,6 +1067,7 @@
                 </p>
               </div>
             </div>
+            <div class="life-subtitle">More childhood photos</div>
             <div class="life-collage">
               <a class="life-photo is-wide" href="#modal-kid2">
                 <img src="pic/pic2.jpg" alt="Childhood photo 2 of Zack Xavier G. Refrea" />
@@ -1154,9 +1238,11 @@
           <div class="card" style="margin-top: 16px;">
             <h2>Education</h2>
             <ul>
-              <li><strong>School:</strong> LSPU</li>
-              <li><strong>Program:</strong> BSIT SMP</li>
-              <li><strong>Status:</strong> College Student</li>
+              <li><strong>Elementary:</strong> Lopez Elementary School</li>
+              <li><strong>High School:</strong> LBNSH (Los Ba&ntilde;os National High School)</li>
+              <li><strong>Senior High:</strong> CDLB (Colegio de Los Ba&ntilde;os)</li>
+              <li><strong>College:</strong> LSPU (Laguna State Polytechnic University)</li>
+              <li><strong>Current:</strong> 3rd Year, BSIT SMP</li>
             </ul>
           </div>
 

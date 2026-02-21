@@ -178,4 +178,29 @@
       lifeMain.addEventListener('mouseleave', startCarousel);
     }
   }
+
+  var funFactText = document.querySelector('.fun-fact-text');
+  if (funFactText) {
+    var rawFacts = funFactText.getAttribute('data-facts') || '';
+    var facts = rawFacts.split('||');
+    var cleanFacts = [];
+    for (var q = 0; q < facts.length; q++) {
+      var item = facts[q].replace(/^\s+|\s+$/g, '');
+      if (item) {
+        cleanFacts.push(item);
+      }
+    }
+
+    if (cleanFacts.length > 1) {
+      var factIndex = 0;
+      window.setInterval(function () {
+        factIndex = (factIndex + 1) % cleanFacts.length;
+        funFactText.style.opacity = '0.2';
+        window.setTimeout(function () {
+          funFactText.textContent = cleanFacts[factIndex];
+          funFactText.style.opacity = '1';
+        }, 130);
+      }, 3300);
+    }
+  }
 })();
