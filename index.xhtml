@@ -1,0 +1,1144 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile | Zack Xavier G. Refrea</title>
+  <link rel="stylesheet" type="text/css" href="animations.css" />
+  <style type="text/css">
+    :root {
+      --navy: #171942;
+      --violet: #96289b;
+      --pink: #ca83ba;
+      --mist: #d6cfd1;
+      --card: #fcfbfd;
+      --text: #191d35;
+      --muted: #54506d;
+      --line: #d6c7d6;
+      --shadow: 0 18px 42px rgba(23, 25, 66, 0.28);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Segoe UI", "Trebuchet MS", Verdana, sans-serif;
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+      padding: 24px;
+      background:
+        radial-gradient(circle at 10% 15%, rgba(202, 131, 186, 0.2), transparent 40%),
+        radial-gradient(circle at 95% 0%, rgba(150, 40, 155, 0.24), transparent 35%),
+        linear-gradient(165deg, #11123a 0%, #1c1e50 45%, #7e2a88 100%);
+    }
+
+    .container {
+      max-width: 1020px;
+      margin: 0 auto;
+    }
+
+    .profile {
+      overflow: hidden;
+      border-radius: 20px;
+      background: var(--card);
+      border: 1px solid rgba(214, 199, 214, 0.8);
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      position: relative;
+      padding: 88px 34px 26px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(145deg, #f6eef7 0%, #f0d8ea 58%, #e5dce0 100%);
+    }
+
+    .quick-nav {
+      position: absolute;
+      top: 34px;
+      right: 34px;
+      z-index: 6;
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      padding: 8px 10px;
+      border: 1px solid #cfb3cb;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.58);
+      width: auto;
+      max-width: 100%;
+    }
+
+    .quick-nav a {
+      font-size: 0.84rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      color: #422055;
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid #c8a8c4;
+      border-radius: 999px;
+      padding: 7px 13px;
+      text-decoration: none;
+    }
+
+    .quick-nav a:hover {
+      background: #f3def0;
+    }
+
+    .quick-toggle {
+      display: inline-flex;
+      margin-left: auto;
+      border: 1px solid #c8a8c4;
+      background: #f7e9f5;
+      color: #5d2a66;
+      border-radius: 10px;
+      width: 46px;
+      height: 42px;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      position: relative;
+    }
+
+    .quick-toggle .bar {
+      position: absolute;
+      width: 18px;
+      height: 2px;
+      background: #5d2a66;
+      border-radius: 2px;
+      transition: transform 200ms ease, opacity 180ms ease;
+      pointer-events: none;
+    }
+
+    .quick-toggle .bar:nth-child(1) {
+      transform: translateY(-6px);
+    }
+
+    .quick-toggle .bar:nth-child(2) {
+      transform: translateY(0);
+    }
+
+    .quick-toggle .bar:nth-child(3) {
+      transform: translateY(6px);
+    }
+
+    .quick-toggle.is-open .bar:nth-child(1) {
+      transform: rotate(45deg);
+    }
+
+    .quick-toggle.is-open .bar:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+
+    .quick-toggle.is-open .bar:nth-child(3) {
+      transform: rotate(-45deg);
+    }
+
+    .quick-links {
+      display: none;
+      flex-direction: column;
+      gap: 8px;
+      align-items: stretch;
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      min-width: 200px;
+      padding: 10px;
+      border: 1px solid #cfb3cb;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 10px 22px rgba(38, 16, 56, 0.15);
+      z-index: 7;
+    }
+
+    .quick-nav .menu-label {
+      display: none;
+    }
+
+    .quick-nav.is-open .quick-links {
+      display: flex;
+    }
+
+    .quick-links a {
+      text-align: left;
+    }
+
+    .hero svg.bg {
+      position: absolute;
+      right: -16px;
+      top: -8px;
+      width: 230px;
+      height: 170px;
+      opacity: 0.28;
+      pointer-events: none;
+    }
+
+    .top {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 30px;
+      font-weight: 700;
+      flex-shrink: 0;
+      background: linear-gradient(135deg, var(--navy), var(--violet));
+      box-shadow: 0 12px 24px rgba(23, 25, 66, 0.32);
+      overflow: hidden;
+      border: 2px solid rgba(255, 255, 255, 0.95);
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .avatar a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 2rem;
+      line-height: 1.1;
+      letter-spacing: 0.2px;
+      margin-bottom: 6px;
+    }
+
+    .headline {
+      color: var(--muted);
+      font-size: 1.02rem;
+      font-weight: 600;
+    }
+
+    .meta {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1px solid #b88cb2;
+      background: #f5e7f2;
+      color: #4a2155;
+      font-size: 0.9rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .tech-strip {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .tech-chip {
+      border: 1px solid #bea1bc;
+      background: #efe2ed;
+      color: #48244f;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .hero-actions {
+      margin-top: 14px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      border: 1px solid #b88cb2;
+      background: #f6e8f3;
+      color: #4a2155;
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .back-to-top {
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      width: 44px;
+      height: 44px;
+      border: 1px solid #be95ba;
+      background: #f8ebf6;
+      color: #5d2a66;
+      border-radius: 999px;
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 1000;
+      box-shadow: 0 8px 20px rgba(38, 16, 56, 0.2);
+    }
+
+    .back-to-top.is-visible {
+      display: inline-flex;
+    }
+
+    .card.nav-focus {
+      border-color: #8a3e95 !important;
+      box-shadow: 0 0 0 3px rgba(150, 40, 155, 0.22), 0 12px 24px rgba(36, 18, 54, 0.18);
+      animation: section-pulse 900ms ease;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.45fr 1fr;
+      gap: 24px;
+      padding: 30px 34px 34px;
+      background: linear-gradient(180deg, #fdfafd 0%, #f7f3f8 100%);
+    }
+
+    .card {
+      border: 1px solid #e2d5e0;
+      border-radius: 14px;
+      padding: 18px;
+      background: #fffefe;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    .project {
+      border: 1px solid #dec7dc;
+      background: linear-gradient(160deg, #ffffff 0%, #fbf4fa 100%);
+      border-radius: 12px;
+      padding: 14px;
+    }
+
+    .project h3 {
+      font-size: 1rem;
+      color: #20153f;
+      margin-bottom: 6px;
+    }
+
+    .preview {
+      margin-bottom: 10px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid #dac3d7;
+      background: #eee7ef;
+    }
+
+    .preview svg {
+      display: block;
+      width: 100%;
+      height: 92px;
+    }
+
+    .preview a {
+      display: block;
+      text-decoration: none;
+      cursor: zoom-in;
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(12, 9, 28, 0.72);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 999;
+    }
+
+    .modal:target {
+      display: flex;
+    }
+
+    .modal-backdrop {
+      position: absolute;
+      inset: 0;
+      display: block;
+    }
+
+    .modal-content {
+      position: relative;
+      width: min(1100px, 96vw);
+      max-height: 90vh;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #c9a6c5;
+      background: #121638;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+      z-index: 1;
+    }
+
+    .modal img {
+      display: block;
+      width: 100%;
+      max-height: 90vh;
+      object-fit: contain;
+      background: #0f1330;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 34px;
+      height: 34px;
+      border: 1px solid #d2bdd0;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.92);
+      color: #2e224f;
+      font-size: 20px;
+      line-height: 32px;
+      text-align: center;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .project p {
+      font-size: 0.94rem;
+      color: #3f355d;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .stack {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .bubble {
+      border: 1px solid #be95ba;
+      background: #f4e5f1;
+      color: #52235f;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .project-actions {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .project-toggle,
+    .project-more {
+      border: 1px solid #b88cb2;
+      background: #f4e7f2;
+      color: #52235f;
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #b88cb2;
+      background: #f9edf7;
+      color: #5a2360;
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .project-details {
+      display: none;
+      margin-top: 10px;
+      border: 1px solid #e1d1df;
+      background: #fff9fe;
+      border-radius: 10px;
+      padding: 10px;
+      font-size: 0.9rem;
+      color: #3f355d;
+    }
+
+    .project-details.is-open {
+      display: block;
+    }
+
+    .modal-info {
+      padding: 18px;
+      color: #e9e8ff;
+      font-size: 0.94rem;
+      line-height: 1.6;
+      max-height: 90vh;
+      overflow: auto;
+    }
+
+    .modal-info h3 {
+      color: #ffffff;
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+    }
+
+    .modal-info ul {
+      margin: 0;
+      list-style: none;
+    }
+
+    .modal-info li {
+      border: 0;
+      color: #d8d8ff;
+      padding: 5px 0;
+    }
+
+    .project-details ul {
+      margin: 0;
+      list-style: none;
+    }
+
+    .project-details li {
+      border: 0;
+      padding: 4px 0;
+      color: #3f355d;
+      font-size: 0.9rem;
+    }
+
+    .project-details li:hover {
+      padding-left: 0;
+      color: #3f355d;
+    }
+
+    .copy-btn {
+      margin-left: 8px;
+      border: 1px solid #be95ba;
+      background: #f5e6f3;
+      color: #5a2462;
+      border-radius: 999px;
+      padding: 3px 8px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .copy-status {
+      margin-left: 6px;
+      font-size: 0.75rem;
+      color: #7d2f83;
+      font-weight: 700;
+    }
+
+    h2 {
+      font-size: 1.04rem;
+      margin-bottom: 10px;
+      color: #271947;
+    }
+
+    p {
+      color: #33344f;
+      font-size: 0.98rem;
+    }
+
+    ul {
+      list-style: none;
+      margin-top: 10px;
+    }
+
+    li {
+      padding: 9px 0;
+      border-bottom: 1px dashed #e5d5e3;
+      color: #2e2948;
+      font-size: 0.95rem;
+    }
+
+    li:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .contact a {
+      color: #6f1f78;
+      text-decoration: none;
+      border-bottom: 1px dotted #6f1f78;
+    }
+
+    .contact a:hover {
+      color: #4d1555;
+      border-bottom-color: #4d1555;
+    }
+
+    .socials-list li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .social-icon {
+      width: 16px;
+      height: 16px;
+      display: inline-block;
+      flex-shrink: 0;
+      color: #6f1f78;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #51456a;
+      border-top: 1px solid var(--line);
+      background: #f3edf2;
+      padding: 18px;
+    }
+
+    @media (max-width: 880px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 12px;
+      }
+
+      .hero,
+      .grid {
+        padding: 22px;
+      }
+
+      .hero {
+        padding-top: 22px;
+      }
+
+      .hero {
+        position: relative;
+      }
+
+      .quick-nav {
+        position: relative;
+        top: auto;
+        right: auto;
+        margin-bottom: 14px;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px;
+        justify-content: flex-start;
+        padding: 8px 9px;
+      }
+
+      .quick-toggle {
+        margin-left: auto;
+        width: 40px;
+        height: 38px;
+      }
+
+      .quick-nav .menu-label {
+        display: inline-flex;
+        align-items: center;
+        font-size: 0.76rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: #5d2a66;
+        padding: 6px 10px;
+        border-radius: 999px;
+        border: 1px solid #c8a8c4;
+        background: #f7e9f5;
+      }
+
+      .quick-links {
+        position: static;
+        min-width: 0;
+        width: 100%;
+        margin-top: 8px;
+        padding: 10px 0 0;
+        border: 0;
+        border-top: 1px dashed #d1b7ce;
+        border-radius: 0;
+        box-shadow: none;
+        background: transparent;
+        gap: 10px;
+      }
+
+      .quick-links a {
+        width: 100%;
+        text-align: center;
+      }
+
+      .top {
+        align-items: flex-start;
+      }
+
+      h1 {
+        font-size: 1.6rem;
+      }
+
+      .hero svg.bg {
+        width: 180px;
+        height: 130px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="gradient-bg" aria-hidden="true">
+    <svg class="goo-svg" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="goo">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+          <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8" result="goo" />
+          <feBlend in="SourceGraphic" in2="goo" />
+        </filter>
+      </defs>
+    </svg>
+    <div class="gradients-container">
+      <div class="g1"></div>
+      <div class="g2"></div>
+      <div class="g3"></div>
+      <div class="g4"></div>
+      <div class="g5"></div>
+      <div class="g6"></div>
+      <div class="g7"></div>
+      <div class="interactive"></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="profile">
+      <div class="hero">
+        <div class="quick-nav">
+          <span class="menu-label">Sections</span>
+          <button type="button" class="quick-toggle" aria-label="Toggle sections menu" aria-expanded="false">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </button>
+          <div class="quick-links">
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+            <a href="#socials">Socials</a>
+          </div>
+        </div>
+
+        <svg class="bg" viewBox="0 0 260 170" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="shapeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#171942" />
+              <stop offset="50%" stop-color="#96289b" />
+              <stop offset="100%" stop-color="#ca83ba" />
+            </linearGradient>
+          </defs>
+          <path d="M29 14C85 -8 163 -3 209 29C255 61 269 120 238 147C206 173 128 166 72 148C18 131 -10 105 3 72C15 40 -30 37 29 14Z" fill="url(#shapeGrad)" />
+        </svg>
+
+        <div class="top">
+          <div class="avatar"><a href="#modal-profile"><img src="pic/Profilepic.jpg" alt="Profile photo of Zack Xavier G. Refrea" /></a></div>
+          <div>
+            <h1>Zack Xavier G. Refrea</h1>
+            <p class="headline">College Student at LSPU | BSIT SMP | Frontend and Backend Web Developer</p>
+          </div>
+        </div>
+
+        <div class="meta">
+          <span class="pill">
+            <svg width="15" height="15" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z" fill="currentColor" />
+            </svg>
+            Laguna, Philippines
+          </span>
+          <span class="pill">
+            <svg width="15" height="15" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M12 2 1 7l11 5 9-4.09V15h2V7L12 2Zm-7.28 8L12 13.31 19.28 10 12 6.69 4.72 10ZM5 12.74V17l7 3 7-3v-4.26l-7 3-7-3Z" fill="currentColor" />
+            </svg>
+            Laguna State Polytechnic University
+          </span>
+        </div>
+
+        <div class="tech-strip">
+          <span class="tech-chip">PHP</span>
+          <span class="tech-chip">MySQL</span>
+          <span class="tech-chip">JavaScript</span>
+          <span class="tech-chip">XHTML/CSS</span>
+          <span class="tech-chip">Bootstrap</span>
+          <span class="tech-chip">Git/GitHub</span>
+        </div>
+
+        <div class="hero-actions">
+          <a class="hero-btn" href="pic/resume.png" download="Zack-Refrea-Resume.png">Download Resume</a>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div>
+          <div class="card" id="about">
+            <h2>About Me</h2>
+            <p>
+              I am Zack Xavier G. Refrea, a BSIT SMP student at LSPU. I enjoy building modern web applications from interface to server logic, with focus on readable code, clean layouts, and smooth user experience.
+            </p>
+          </div>
+
+          <div class="card" style="margin-top: 16px;">
+            <h2>What I Build</h2>
+            <ul>
+              <li><strong>Frontend:</strong> Responsive interfaces with XHTML/HTML, CSS, and JavaScript.</li>
+              <li><strong>Backend:</strong> APIs, authentication, and database-driven features for web apps.</li>
+              <li><strong>Full-Stack Work:</strong> Connecting UI and backend into complete, usable products.</li>
+            </ul>
+          </div>
+
+          <div class="card" id="projects" style="margin-top: 16px;">
+            <h2>Project Showcase</h2>
+            <div class="projects-grid">
+              <div class="project">
+                <div class="preview">
+                  <a href="#modal-clinic">
+                    <svg viewBox="0 0 520 92" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                      <rect x="0" y="0" width="520" height="92" fill="#dfe8f1" />
+                      <rect x="0" y="0" width="520" height="16" fill="#1f7daf" />
+                      <circle cx="18" cy="8" r="4" fill="#ffffff" />
+                      <circle cx="31" cy="8" r="4" fill="#ffffff" />
+                      <circle cx="44" cy="8" r="4" fill="#ffffff" />
+                      <rect x="18" y="30" width="126" height="42" rx="7" fill="#ffffff" />
+                      <rect x="157" y="30" width="126" height="42" rx="7" fill="#ffffff" />
+                      <rect x="296" y="30" width="126" height="42" rx="7" fill="#ffffff" />
+                    </svg>
+                  </a>
+                </div>
+                <h3>LSPU Clinic System</h3>
+                <p>
+                  LSPU group project: clinic records, schedules, and basic staff workflow in one campus portal.
+                </p>
+                <div class="stack">
+                  <span class="bubble">PHP</span>
+                  <span class="bubble">MySQL</span>
+                  <span class="bubble">HTML/CSS</span>
+                  <span class="bubble">Bootstrap UI</span>
+                  <span class="bubble">CRUD</span>
+                </div>
+                <div class="project-actions">
+                  <a class="project-more" href="#info-clinic">Open Details</a>
+                </div>
+              </div>
+
+              <div class="project">
+                <div class="preview">
+                  <a href="#modal-delivery">
+                    <svg viewBox="0 0 520 92" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                      <rect x="0" y="0" width="520" height="92" fill="#0d1f42" />
+                      <rect x="16" y="15" width="318" height="62" rx="10" fill="#132d58" stroke="#2f4f87" />
+                      <circle cx="406" cy="46" r="22" fill="#21bbc1" opacity="0.35" />
+                      <rect x="36" y="30" width="120" height="8" rx="4" fill="#3fe0e4" />
+                      <rect x="36" y="46" width="196" height="8" rx="4" fill="#8db2d6" />
+                      <rect x="36" y="60" width="158" height="8" rx="4" fill="#8db2d6" />
+                    </svg>
+                  </a>
+                </div>
+                <h3>Delivery Management Platform</h3>
+                <p>
+                  Client-style requirement: role-based tracking for customers, owners, and drivers.
+                </p>
+                <div class="stack">
+                  <span class="bubble">JavaScript</span>
+                  <span class="bubble">PHP</span>
+                  <span class="bubble">MySQL</span>
+                  <span class="bubble">Role-Based Access</span>
+                  <span class="bubble">Tracking UI</span>
+                </div>
+                <div class="project-actions">
+                  <a class="project-more" href="#info-delivery">Open Details</a>
+                </div>
+              </div>
+
+              <div class="project">
+                <div class="preview">
+                  <a href="#modal-game">
+                    <svg viewBox="0 0 520 92" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                      <rect x="0" y="0" width="520" height="92" fill="#070b23" />
+                      <circle cx="48" cy="18" r="2" fill="#8fa1ff" />
+                      <circle cx="86" cy="32" r="2" fill="#8fa1ff" />
+                      <circle cx="420" cy="24" r="2" fill="#8fa1ff" />
+                      <rect x="128" y="18" width="264" height="56" rx="10" fill="#121d4c" stroke="#4f5cff" />
+                      <rect x="162" y="34" width="196" height="8" rx="4" fill="#b7beff" />
+                      <rect x="210" y="50" width="100" height="8" rx="4" fill="#5f66ff" />
+                    </svg>
+                  </a>
+                </div>
+                <h3>Asteroid-Empire (Wave Defense Game)</h3>
+                <p>
+                  Browser wave-defense game with weapon selection, pressure pacing, and arcade-style UI feedback.
+                </p>
+                <div class="stack">
+                  <span class="bubble">JavaScript</span>
+                  <span class="bubble">Game UI Logic</span>
+                  <span class="bubble">Wave System</span>
+                  <span class="bubble">HTML/CSS</span>
+                </div>
+                <div class="project-actions">
+                  <a class="project-link" href="https://shirakawa69.github.io/Asteroid-Empire/">Live Demo</a>
+                  <a class="project-more" href="#info-asteroid">Open Details</a>
+                </div>
+              </div>
+
+              <div class="project">
+                <div class="preview">
+                  <a href="#modal-pass">
+                    <svg viewBox="0 0 520 92" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                      <rect x="0" y="0" width="520" height="92" fill="#f1e8d0" />
+                      <rect x="16" y="16" width="488" height="60" rx="10" fill="#f6edd8" stroke="#cda63d" />
+                      <rect x="130" y="36" width="260" height="18" rx="9" fill="#d9b54f" opacity="0.7" />
+                      <circle cx="70" cy="46" r="10" fill="#d9b54f" opacity="0.8" />
+                      <circle cx="450" cy="46" r="10" fill="#d9b54f" opacity="0.8" />
+                    </svg>
+                  </a>
+                </div>
+                <h3>Claim Your Pass (Parody Website)</h3>
+                <p>
+                  Experimental parody landing page with exaggerated visual style and playful UI composition.
+                </p>
+                <div class="stack">
+                  <span class="bubble">HTML/CSS</span>
+                  <span class="bubble">Themed UI</span>
+                  <span class="bubble">Parody Content</span>
+                  <span class="bubble">Creative Layout</span>
+                </div>
+                <div class="project-actions">
+                  <a class="project-link" href="https://shirakawa69.github.io/Nwordpass-Troll/">Live Demo</a>
+                  <a class="project-more" href="#info-pass">Open Details</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card" style="margin-top: 16px;">
+            <h2>Current Goal</h2>
+            <p>
+              To keep improving as a full-stack developer by building practical and personal projects that solve real user problems.
+            </p>
+          </div>
+        </div>
+
+        <div>
+          <div class="card" id="skills">
+            <h2>Skills</h2>
+            <ul>
+              <li>XHTML / HTML / CSS</li>
+              <li>JavaScript</li>
+              <li>PHP and MySQL</li>
+              <li>Backend Web Development</li>
+            </ul>
+          </div>
+
+          <div class="card" style="margin-top: 16px;">
+            <h2>Education</h2>
+            <ul>
+              <li><strong>School:</strong> LSPU</li>
+              <li><strong>Program:</strong> BSIT SMP</li>
+              <li><strong>Status:</strong> College Student</li>
+            </ul>
+          </div>
+
+          <div class="card contact" id="contact" style="margin-top: 16px;">
+            <h2>Connect</h2>
+            <ul>
+              <li><strong>Email:</strong> <a href="mailto:zackroberteileen@gmail.com">zackroberteileen@gmail.com</a><button type="button" class="copy-btn" data-copy="zackroberteileen@gmail.com">Copy</button><span class="copy-status"></span></li>
+              <li><strong>GitHub:</strong> <a href="https://github.com/Shirakawa69">github.com/Shirakawa69</a></li>
+            </ul>
+          </div>
+
+          <div class="card contact" id="socials" style="margin-top: 16px;">
+            <h2>Socials</h2>
+            <ul class="socials-list">
+              <li>
+                <svg class="social-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path fill="currentColor" d="M13.5 8H16V5h-2.5C10.6 5 9 6.7 9 9.8V12H7v3h2v4h3v-4h2.4l.6-3H12V9.9c0-1 .3-1.9 1.5-1.9Z" />
+                </svg>
+                <strong>Facebook:</strong> <a href="https://www.facebook.com/Zackyplays">facebook.com/Zackyplays</a>
+              </li>
+              <li>
+                <svg class="social-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path fill="currentColor" d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9Zm10.75 1.75a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z" />
+                </svg>
+                <strong>Instagram:</strong> <a href="https://www.instagram.com/shirakawa69/">instagram.com/shirakawa69</a>
+              </li>
+              <li>
+                <svg class="social-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path fill="currentColor" d="M20.3 4.37A17.6 17.6 0 0 0 16.16 3c-.2.36-.43.85-.58 1.23a16.4 16.4 0 0 0-7.16 0A12 12 0 0 0 7.84 3 17.5 17.5 0 0 0 3.7 4.37C1.08 8.35.37 12.25.73 16.1A17.8 17.8 0 0 0 6.06 18.8c.43-.58.81-1.2 1.13-1.86-.62-.24-1.22-.54-1.78-.9.15-.11.29-.23.43-.35 3.43 1.6 7.15 1.6 10.54 0 .14.12.28.24.43.35-.57.36-1.16.66-1.78.9.32.66.7 1.28 1.13 1.86a17.7 17.7 0 0 0 5.33-2.7c.46-4.46-.78-8.32-2.2-11.73ZM8.67 13.74c-1.03 0-1.87-.95-1.87-2.12s.82-2.12 1.87-2.12 1.9.95 1.87 2.12c0 1.17-.83 2.12-1.87 2.12Zm6.66 0c-1.03 0-1.87-.95-1.87-2.12s.82-2.12 1.87-2.12 1.9.95 1.87 2.12c0 1.17-.82 2.12-1.87 2.12Z" />
+                </svg>
+                <strong>Discord:</strong> <a href="https://discord.com/app">shirakawa69 (Discord)</a><button type="button" class="copy-btn" data-copy="shirakawa69">Copy</button><span class="copy-status"></span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">&copy; 2026 Zack Xavier G. Refrea | XHTML Profile Website</div>
+    </div>
+  </div>
+
+  <div class="modal" id="modal-clinic">
+    <a href="#" class="modal-backdrop" aria-label="Close image popup"></a>
+    <div class="modal-content">
+      <a href="#" class="modal-close" aria-label="Close image popup">&times;</a>
+      <img src="pic/clinic-screenshot.png" alt="LSPU Clinic System screenshot" />
+    </div>
+  </div>
+
+  <div class="modal" id="modal-delivery">
+    <a href="#" class="modal-backdrop" aria-label="Close image popup"></a>
+    <div class="modal-content">
+      <a href="#" class="modal-close" aria-label="Close image popup">&times;</a>
+      <img src="pic/logisticpic.png" alt="Delivery Management Platform screenshot" />
+    </div>
+  </div>
+  <div class="modal" id="modal-game">
+    <a href="#" class="modal-backdrop" aria-label="Close image popup"></a>
+    <div class="modal-content">
+      <a href="#" class="modal-close" aria-label="Close image popup">&times;</a>
+      <img src="pic/gamepic.png" alt="Asteroid-Empire gameplay screenshot" />
+    </div>
+  </div>
+  <div class="modal" id="modal-pass">
+    <a href="#" class="modal-backdrop" aria-label="Close image popup"></a>
+    <div class="modal-content">
+      <a href="#" class="modal-close" aria-label="Close image popup">&times;</a>
+      <img src="pic/nwprdpass.png" alt="Claim Your Pass parody website screenshot" />
+    </div>
+  </div>
+  <div class="modal" id="modal-profile">
+    <a href="#" class="modal-backdrop" aria-label="Close profile image popup"></a>
+    <div class="modal-content">
+      <a href="#" class="modal-close" aria-label="Close profile image popup">&times;</a>
+      <img src="pic/Profilepic.jpg" alt="Profile photo of Zack Xavier G. Refrea" />
+    </div>
+  </div>
+  <div class="modal" id="info-clinic">
+    <a href="#" class="modal-backdrop" aria-label="Close project details"></a>
+    <div class="modal-content">
+      <a href="#" class="modal-close" aria-label="Close project details">&times;</a>
+      <div class="modal-info">
+        <h3>LSPU Clinic System</h3>
+        <ul>
+          <li><strong>Project Context:</strong> Group project requirement at LSPU to build a clinic information and management system for campus use.</li>
+          <li><strong>Role:</strong> Frontend layout + backend integration, including CRUD pages and record/schedule database flow.</li>
+          <li><strong>Main Problem:</strong> Manual logs were slow, records were difficult to track, and schedule updates were not centralized.</li>
+          <li><strong>What We Built:</strong> Registration, record updates, clinic schedule management, and a readable UI for clinic staff.</li>
+          <li><strong>Outcome:</strong> Faster retrieval of records, less repeated entry, and stronger full-stack teamwork experience.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="info-delivery">
+    <a href="#" class="modal-backdrop" aria-label="Close project details"></a>
+    <div class="modal-content">
+      <a href="#" class="modal-close" aria-label="Close project details">&times;</a>
+      <div class="modal-info">
+        <h3>Delivery Management Platform</h3>
+        <ul>
+          <li><strong>Project Context:</strong> Client/customer-style requirement to solve real delivery workflow issues through a web system.</li>
+          <li><strong>Role:</strong> Backend + frontend integration for role-based navigation, tracking pages, and status update flow.</li>
+          <li><strong>Main Problem:</strong> Fragmented process, weak visibility for owners, unclear tracking for customers, and inefficient driver updates.</li>
+          <li><strong>What We Built:</strong> One platform for customers, owners, and drivers with role-based access and clearer status progression.</li>
+          <li><strong>Outcome:</strong> Better communication between roles, less tracking confusion, and a more structured operations process.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="info-asteroid">
+    <a href="#" class="modal-backdrop" aria-label="Close project details"></a>
+    <div class="modal-content">
+      <a href="#" class="modal-close" aria-label="Close project details">&times;</a>
+      <div class="modal-info">
+        <h3>Asteroid-Empire (Wave Defense Game)</h3>
+        <ul>
+          <li><strong>Project Context:</strong> Personal game-style web experiment focused on interactive UI and arcade pacing.</li>
+          <li><strong>Role:</strong> Designed the game interface, implemented wave progression behavior, and tuned feedback loops.</li>
+          <li><strong>Main Problem:</strong> Keep gameplay simple enough for first-time players while still feeling intense and responsive.</li>
+          <li><strong>What I Built:</strong> Weapon selection flow, wave trigger actions, visual emphasis for key controls, and replay-ready pacing.</li>
+          <li><strong>Outcome:</strong> A playable browser mini-game that showcases frontend logic, UI polish, and game interaction structure.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="info-pass">
+    <a href="#" class="modal-backdrop" aria-label="Close project details"></a>
+    <div class="modal-content">
+      <a href="#" class="modal-close" aria-label="Close project details">&times;</a>
+      <div class="modal-info">
+        <h3>Claim Your Pass (Parody Website)</h3>
+        <ul>
+          <li><strong>Project Context:</strong> Side parody page created for fun and rapid creative experimentation.</li>
+          <li><strong>Role:</strong> Handled visual concept, layout styling, and tone direction.</li>
+          <li><strong>Main Problem:</strong> Create a memorable joke page while still keeping a coherent interface and readable hierarchy.</li>
+          <li><strong>What I Built:</strong> A themed single-page design with custom typography feel, decorative visual blocks, and exaggerated call-to-action flow.</li>
+          <li><strong>Outcome:</strong> A playful concept project that demonstrates style flexibility and fast frontend execution.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <button type="button" class="back-to-top" aria-label="Back to top">&#8593;</button>
+  <script type="text/javascript" src="animations.js"></script>
+</body>
+</html>
+
