@@ -1,5 +1,5 @@
 ﻿(function () {
-  var clickable = document.querySelectorAll('.quick-nav a, .preview a, .pill, .tech-chip, .bubble, .modal-close, .project-more, .project-link, .copy-btn, .hero-btn, .quick-toggle, .back-to-top');
+  var clickable = document.querySelectorAll('.quick-nav a, .preview a, .life-photo, .life-main-photo, .pill, .tech-chip, .bubble, .modal-close, .project-more, .project-link, .copy-btn, .hero-btn, .quick-toggle, .back-to-top');
   for (var i = 0; i < clickable.length; i++) {
     clickable[i].addEventListener('click', function () {
       var el = this;
@@ -124,5 +124,58 @@
     backTop.addEventListener('click', function () {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+  }
+
+  var lifeMain = document.querySelector('.life-main-photo');
+  var lifeMainImg = lifeMain ? lifeMain.querySelector('img') : null;
+  if (lifeMain && lifeMainImg) {
+    var kidModals = document.querySelectorAll('.modal[id^="modal-kid"]');
+    var slides = [];
+    for (var n = 0; n < kidModals.length; n++) {
+      var modalImg = kidModals[n].querySelector('img');
+      if (modalImg && modalImg.getAttribute('src')) {
+        slides.push({
+          src: modalImg.getAttribute('src'),
+          alt: modalImg.getAttribute('alt') || 'Childhood photo',
+          href: '#' + kidModals[n].getAttribute('id')
+        });
+      }
+    }
+
+    if (slides.length > 1) {
+      var slideIndex = 0;
+      var slideTimer = null;
+      lifeMainImg.style.transition = 'opacity 260ms ease';
+
+      function setSlide(index) {
+        var safeIndex = index % slides.length;
+        lifeMainImg.style.opacity = '0.2';
+        window.setTimeout(function () {
+          lifeMainImg.setAttribute('src', slides[safeIndex].src);
+          lifeMainImg.setAttribute('alt', slides[safeIndex].alt);
+          lifeMain.setAttribute('href', slides[safeIndex].href);
+          lifeMainImg.style.opacity = '1';
+        }, 120);
+      }
+
+      function startCarousel() {
+        if (slideTimer) return;
+        slideTimer = window.setInterval(function () {
+          slideIndex = (slideIndex + 1) % slides.length;
+          setSlide(slideIndex);
+        }, 3200);
+      }
+
+      function stopCarousel() {
+        if (slideTimer) {
+          window.clearInterval(slideTimer);
+          slideTimer = null;
+        }
+      }
+
+      startCarousel();
+      lifeMain.addEventListener('mouseenter', stopCarousel);
+      lifeMain.addEventListener('mouseleave', startCarousel);
+    }
   }
 })();

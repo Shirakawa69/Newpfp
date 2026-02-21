@@ -38,7 +38,7 @@
     }
 
     .container {
-      max-width: 1020px;
+      max-width: 1180px;
       margin: 0 auto;
     }
 
@@ -364,6 +364,113 @@
       margin-bottom: 6px;
     }
 
+    .life-card {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(155deg, #fff7fe 0%, #f7ebf6 52%, #f0e5ef 100%);
+    }
+
+    .life-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid #c8a2c4;
+      background: #f7e8f4;
+      color: #57255e;
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+    }
+
+    .life-layout {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 14px;
+      align-items: stretch;
+      margin-top: 12px;
+    }
+
+    .life-main-photo {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid #cfb0cb;
+      box-shadow: 0 12px 24px rgba(41, 16, 56, 0.16);
+      text-decoration: none;
+      min-height: 280px;
+      display: block;
+      cursor: zoom-in;
+    }
+
+    .life-main-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .life-main-caption {
+      position: absolute;
+      left: 12px;
+      bottom: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.42);
+      background: rgba(22, 14, 40, 0.62);
+      color: #ffffff;
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      backdrop-filter: blur(2px);
+    }
+
+    .life-story {
+      border: 1px solid #d8bfd5;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.78);
+      padding: 12px;
+    }
+
+    .life-story p {
+      font-size: 0.95rem;
+      color: #342744;
+    }
+
+    .life-story p + p {
+      margin-top: 9px;
+    }
+
+    .life-collage {
+      margin-top: 12px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 9px;
+    }
+
+    .life-photo {
+      display: block;
+      border-radius: 11px;
+      overflow: hidden;
+      border: 1px solid #cfb0cb;
+      background: #eee7ef;
+      text-decoration: none;
+      box-shadow: 0 7px 16px rgba(36, 18, 54, 0.14);
+      cursor: zoom-in;
+    }
+
+    .life-photo img {
+      display: block;
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+    }
+
+    .life-photo.is-wide {
+      grid-column: span 2;
+    }
+
     .preview {
       margin-bottom: 10px;
       border-radius: 10px;
@@ -647,7 +754,23 @@
       }
 
       .projects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .life-layout {
         grid-template-columns: 1fr;
+      }
+
+      .life-collage {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .life-main-photo {
+        min-height: 230px;
+      }
+
+      .life-photo img {
+        height: 135px;
       }
     }
 
@@ -722,6 +845,10 @@
         text-align: center;
       }
 
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
       .top {
         align-items: flex-start;
       }
@@ -772,6 +899,7 @@
           </button>
           <div class="quick-links">
             <a href="#about">About</a>
+            <a href="#life">Life</a>
             <a href="#projects">Projects</a>
             <a href="#skills">Skills</a>
             <a href="#contact">Contact</a>
@@ -834,6 +962,42 @@
             <p>
               I am Zack Xavier G. Refrea, a BSIT SMP student at LSPU. I enjoy building modern web applications from interface to server logic, with focus on readable code, clean layouts, and smooth user experience.
             </p>
+          </div>
+
+          <div class="card life-card" id="life" style="margin-top: 16px;">
+            <h2>Life Story</h2>
+            <span class="life-badge">Childhood and Journey</span>
+            <div class="life-layout">
+              <a class="life-main-photo" href="#modal-kid1">
+                <img src="pic/pic1.jpg" alt="Childhood photo 1 of Zack Xavier G. Refrea" />
+                <span class="life-main-caption">Tap to open memory</span>
+              </a>
+              <div class="life-story">
+                <p>
+                  I did not grow up around many gadgets. Because I did not have easy access before, I became even more interested in computers, apps, and how websites actually work behind the screen.
+                </p>
+                <p>
+                  When I finally got the chance to explore tech deeper, I treated every project as a chance to learn. School tasks, team projects, and random builds helped me improve my coding logic, design sense, and confidence.
+                </p>
+                <p>
+                  These childhood photos are my reminder of where I started. They keep me grounded and motivated to keep building better web apps that are useful, clean, and personal.
+                </p>
+              </div>
+            </div>
+            <div class="life-collage">
+              <a class="life-photo is-wide" href="#modal-kid2">
+                <img src="pic/pic2.jpg" alt="Childhood photo 2 of Zack Xavier G. Refrea" />
+              </a>
+              <a class="life-photo" href="#modal-kid3">
+                <img src="pic/pic3.jpg" alt="Childhood photo 3 of Zack Xavier G. Refrea" />
+              </a>
+              <a class="life-photo" href="#modal-kid4">
+                <img src="pic/pic4.jpg" alt="Childhood photo 4 of Zack Xavier G. Refrea" />
+              </a>
+              <a class="life-photo is-wide" href="#modal-kid5">
+                <img src="pic/pic5.jpg" alt="Childhood photo 5 of Zack Xavier G. Refrea" />
+              </a>
+            </div>
           </div>
 
           <div class="card" style="margin-top: 16px;">
@@ -1070,6 +1234,41 @@
       <img src="pic/Profilepic.jpg" alt="Profile photo of Zack Xavier G. Refrea" />
     </div>
   </div>
+  <div class="modal" id="modal-kid1">
+    <a href="#" class="modal-backdrop" aria-label="Close childhood image popup"></a>
+    <div class="modal-content">
+      <a href="#" class="modal-close" aria-label="Close childhood image popup">&times;</a>
+      <img src="pic/pic1.jpg" alt="Childhood photo 1 of Zack Xavier G. Refrea" />
+    </div>
+  </div>
+  <div class="modal" id="modal-kid2">
+    <a href="#" class="modal-backdrop" aria-label="Close childhood image popup"></a>
+    <div class="modal-content">
+      <a href="#" class="modal-close" aria-label="Close childhood image popup">&times;</a>
+      <img src="pic/pic2.jpg" alt="Childhood photo 2 of Zack Xavier G. Refrea" />
+    </div>
+  </div>
+  <div class="modal" id="modal-kid3">
+    <a href="#" class="modal-backdrop" aria-label="Close childhood image popup"></a>
+    <div class="modal-content">
+      <a href="#" class="modal-close" aria-label="Close childhood image popup">&times;</a>
+      <img src="pic/pic3.jpg" alt="Childhood photo 3 of Zack Xavier G. Refrea" />
+    </div>
+  </div>
+  <div class="modal" id="modal-kid4">
+    <a href="#" class="modal-backdrop" aria-label="Close childhood image popup"></a>
+    <div class="modal-content">
+      <a href="#" class="modal-close" aria-label="Close childhood image popup">&times;</a>
+      <img src="pic/pic4.jpg" alt="Childhood photo 4 of Zack Xavier G. Refrea" />
+    </div>
+  </div>
+  <div class="modal" id="modal-kid5">
+    <a href="#" class="modal-backdrop" aria-label="Close childhood image popup"></a>
+    <div class="modal-content">
+      <a href="#" class="modal-close" aria-label="Close childhood image popup">&times;</a>
+      <img src="pic/pic5.jpg" alt="Childhood photo 5 of Zack Xavier G. Refrea" />
+    </div>
+  </div>
   <div class="modal" id="info-clinic">
     <a href="#" class="modal-backdrop" aria-label="Close project details"></a>
     <div class="modal-content">
@@ -1141,4 +1340,3 @@
   <script type="text/javascript" src="animations.js"></script>
 </body>
 </html>
-
