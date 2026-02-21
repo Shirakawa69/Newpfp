@@ -170,6 +170,20 @@
       text-align: left;
     }
 
+    .quick-links .theme-toggle {
+      text-align: left;
+      font-size: 0.84rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      color: #422055;
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid #c8a8c4;
+      border-radius: 999px;
+      padding: 7px 13px;
+      cursor: pointer;
+    }
+
     .hero svg.bg {
       position: absolute;
       right: -16px;
@@ -823,6 +837,112 @@
       padding: 18px;
     }
 
+    body.theme-dark {
+      color: #ececff;
+      background:
+        radial-gradient(circle at 12% 15%, rgba(91, 94, 189, 0.2), transparent 40%),
+        radial-gradient(circle at 95% 0%, rgba(86, 40, 122, 0.24), transparent 35%),
+        linear-gradient(165deg, #0a0d21 0%, #121633 45%, #1f1b3a 100%);
+    }
+
+    body.theme-dark .profile {
+      background: #0f1328;
+      border-color: rgba(116, 123, 171, 0.44);
+    }
+
+    body.theme-dark .hero {
+      background: linear-gradient(145deg, #171d3f 0%, #1f2148 58%, #25213f 100%);
+      border-bottom-color: #39406b;
+    }
+
+    body.theme-dark .quick-nav {
+      background: rgba(17, 22, 48, 0.78);
+      border-color: #464f80;
+    }
+
+    body.theme-dark .quick-nav a,
+    body.theme-dark .quick-links .theme-toggle {
+      background: #1f2753;
+      border-color: #55619b;
+      color: #e8e9ff;
+    }
+
+    body.theme-dark .quick-nav a:hover {
+      background: #273165;
+    }
+
+    body.theme-dark .quick-toggle {
+      background: #202a58;
+      border-color: #57639b;
+      color: #e8e9ff;
+    }
+
+    body.theme-dark .quick-toggle .bar {
+      background: #e8e9ff;
+    }
+
+    body.theme-dark .headline,
+    body.theme-dark p,
+    body.theme-dark li {
+      color: #d6daff;
+    }
+
+    body.theme-dark .grid {
+      background: linear-gradient(180deg, #121734 0%, #161d3b 100%);
+    }
+
+    body.theme-dark .card,
+    body.theme-dark .project {
+      background: #1a2142;
+      border-color: #424f84;
+    }
+
+    body.theme-dark h1,
+    body.theme-dark h2,
+    body.theme-dark .project h3 {
+      color: #f0f1ff;
+    }
+
+    body.theme-dark .pill,
+    body.theme-dark .tech-chip,
+    body.theme-dark .bubble,
+    body.theme-dark .hero-btn,
+    body.theme-dark .project-link,
+    body.theme-dark .project-more,
+    body.theme-dark .copy-btn {
+      background: #263062;
+      border-color: #5a68a8;
+      color: #e8ebff;
+    }
+
+    body.theme-dark .about-note,
+    body.theme-dark .life-story {
+      background: rgba(31, 39, 74, 0.86);
+      border-color: #4d5b94;
+      color: #dfe3ff;
+    }
+
+    body.theme-dark .about-note strong,
+    body.theme-dark .life-subtitle {
+      color: #f0f2ff;
+    }
+
+    body.theme-dark .quote-line {
+      color: #e4e7ff;
+      border-left-color: #7e8ed2;
+    }
+
+    body.theme-dark .footer {
+      background: #121733;
+      border-top-color: #3c4678;
+      color: #cfd6ff;
+    }
+
+    body.theme-dark .contact a {
+      color: #cdd4ff;
+      border-bottom-color: #cdd4ff;
+    }
+
     @media (max-width: 880px) {
       .grid {
         grid-template-columns: 1fr;
@@ -921,6 +1041,11 @@
         text-align: center;
       }
 
+      .quick-links .theme-toggle {
+        width: 100%;
+        text-align: center;
+      }
+
       .projects-grid {
         grid-template-columns: 1fr;
       }
@@ -981,6 +1106,7 @@
             <a href="#skills">Skills</a>
             <a href="#contact">Contact</a>
             <a href="#socials">Socials</a>
+            <button type="button" class="theme-toggle" aria-pressed="false">Dark Mode</button>
           </div>
         </div>
 

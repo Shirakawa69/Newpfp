@@ -109,6 +109,38 @@
     }
   }
 
+  var themeToggle = document.querySelector('.theme-toggle');
+  function applyTheme(isDark) {
+    if (isDark) {
+      document.body.classList.add('theme-dark');
+    } else {
+      document.body.classList.remove('theme-dark');
+    }
+    if (themeToggle) {
+      themeToggle.textContent = isDark ? 'Light Mode' : 'Dark Mode';
+      themeToggle.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+    }
+  }
+
+  var savedTheme = null;
+  try {
+    savedTheme = window.localStorage.getItem('site-theme');
+  } catch (errTheme) {
+    savedTheme = null;
+  }
+  applyTheme(savedTheme === 'dark');
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function () {
+      var isDark = !document.body.classList.contains('theme-dark');
+      applyTheme(isDark);
+      try {
+        window.localStorage.setItem('site-theme', isDark ? 'dark' : 'light');
+      } catch (errSetTheme) {
+      }
+    });
+  }
+
   var backTop = document.querySelector('.back-to-top');
   if (backTop) {
     window.addEventListener('scroll', function () {
