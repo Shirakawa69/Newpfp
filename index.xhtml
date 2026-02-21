@@ -1050,6 +1050,39 @@
         grid-template-columns: 1fr;
       }
 
+      .life-layout {
+        gap: 10px;
+      }
+
+      .life-main-photo {
+        min-height: 190px;
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+      }
+
+      .life-collage {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 7px;
+        width: 100%;
+        max-width: 320px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .life-photo.is-wide {
+        grid-column: span 1;
+      }
+
+      .life-photo img {
+        height: 96px;
+      }
+
+      .life-main-caption {
+        font-size: 0.74rem;
+        padding: 5px 10px;
+      }
+
 
       .top {
         align-items: flex-start;
