@@ -172,54 +172,6 @@
     });
   }
 
-  var personalHearts = document.querySelectorAll('#info-personal .personal-heart-particle');
-  var personalHeartTimer = null;
-
-  function randomBetween(min, max) {
-    return min + (Math.random() * (max - min));
-  }
-
-  function randomizePersonalHearts() {
-    for (var p = 0; p < personalHearts.length; p++) {
-      var particle = personalHearts[p];
-      var left = randomBetween(6, 94).toFixed(2) + '%';
-      var drift = randomBetween(-90, 90).toFixed(0) + 'px';
-      var size = randomBetween(8, 15).toFixed(1) + 'px';
-      var duration = randomBetween(2.2, 4.6).toFixed(2) + 's';
-      var delay = randomBetween(0, 1.8).toFixed(2) + 's';
-      var scaleStart = randomBetween(0.42, 0.78).toFixed(2);
-      var scaleEnd = randomBetween(0.84, 1.36).toFixed(2);
-
-      particle.style.setProperty('--heart-left', left);
-      particle.style.setProperty('--heart-drift-x', drift);
-      particle.style.setProperty('--heart-size', size);
-      particle.style.setProperty('--heart-duration', duration);
-      particle.style.setProperty('--heart-delay', delay);
-      particle.style.setProperty('--heart-scale-start', scaleStart);
-      particle.style.setProperty('--heart-scale-end', scaleEnd);
-    }
-  }
-
-  function syncPersonalHeartMotion() {
-    if (!personalHearts.length) {
-      return;
-    }
-
-    var isOpen = window.location.hash === '#info-personal';
-    if (isOpen) {
-      randomizePersonalHearts();
-      if (!personalHeartTimer) {
-        personalHeartTimer = window.setInterval(randomizePersonalHearts, 1500);
-      }
-    } else if (personalHeartTimer) {
-      window.clearInterval(personalHeartTimer);
-      personalHeartTimer = null;
-    }
-  }
-
-  window.addEventListener('hashchange', syncPersonalHeartMotion);
-  syncPersonalHeartMotion();
-
   var backTop = document.querySelector('.back-to-top');
   if (backTop) {
     function syncBackToTopVisibility() {
@@ -263,3 +215,4 @@
   }
 
 })();
+

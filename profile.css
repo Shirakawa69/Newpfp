@@ -593,63 +593,6 @@ li:last-child {
   animation: float-bounce 6s ease-in-out infinite;
 }
 
-.personal-heart-field {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.personal-heart-particle {
-  position: absolute;
-  top: 100%;
-  left: var(--heart-left, 50%);
-  width: var(--heart-size, 10px);
-  height: var(--heart-size, 10px);
-  background: #d42c7d;
-  border-radius: 1px;
-  transform: translate3d(0, 0, 0) rotate(45deg) scale(var(--heart-scale-start, 0.55));
-  opacity: 0;
-}
-
-.personal-heart-particle::before,
-.personal-heart-particle::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: #d42c7d;
-  border-radius: 50%;
-}
-
-.personal-heart-particle::before {
-  top: -50%;
-}
-
-.personal-heart-particle::after {
-  left: -50%;
-}
-
-#info-personal:target .personal-heart-particle {
-  animation: personal-heart-float var(--heart-duration, 3s) linear infinite;
-  animation-delay: var(--heart-delay, 0s);
-}
-
-@keyframes personal-heart-float {
-  0% {
-    transform: translate3d(0, 0, 0) rotate(45deg) scale(var(--heart-scale-start, 0.55));
-    opacity: 0;
-  }
-  14% {
-    opacity: 0.9;
-  }
-  100% {
-    transform: translate3d(var(--heart-drift-x, 40px), calc(-100vh - 180px), 0) rotate(45deg) scale(var(--heart-scale-end, 1));
-    opacity: 0;
-  }
-}
-
 @keyframes float-rotate {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
@@ -1251,12 +1194,6 @@ body.theme-dark .personal-shell::after {
   background: radial-gradient(circle, rgba(202, 131, 186, 0.12) 0%, transparent 70%);
 }
 
-body.theme-dark .personal-heart-particle,
-body.theme-dark .personal-heart-particle::before,
-body.theme-dark .personal-heart-particle::after {
-  background: #ff86cd;
-}
-
 body.theme-dark .personal-shell h3,
 body.theme-dark .personal-gallery-title,
 body.theme-dark .personal-photo-head h5,
@@ -1697,3 +1634,4 @@ body.theme-dark .personal-gallery a {
   border-color: rgba(150, 40, 155, 0.6);
   transform: scale(1.05);
 }
+
