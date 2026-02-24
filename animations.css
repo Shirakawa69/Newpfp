@@ -246,43 +246,6 @@ body.theme-dark .section-glow {
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .g1,
-  .g2,
-  .g3,
-  .g4,
-  .g5,
-  .g6,
-  .g7,
-  .interactive,
-  .profile,
-  .is-clicked,
-  .section-glow {
-    animation: none !important;
-  }
-
-  .card,
-  .project,
-  .personal-card,
-  .personal-photo-group,
-  .game-like,
-  .quick-nav a,
-  .pill,
-  .tech-chip,
-  .bubble,
-  .preview,
-  .hero-btn,
-  .project-link,
-  .project-more,
-  .copy-btn,
-  .modal-close,
-  .back-to-top {
-    transition: none !important;
-  }
-
-
-}
-
 /* Motion polish: align with personal section feel */
 .card,
 .project,
@@ -413,3 +376,109 @@ body.theme-dark .tech-chip:hover,
 body.theme-dark .bubble:hover {
   box-shadow: 0 8px 18px rgba(2, 8, 24, 0.5);
 }
+
+/* ==================== RESPONSIVE ANIMATIONS ==================== */
+
+/* Mobile optimizations - reduce blur and saturate for performance */
+@media (max-width: 768px) {
+  .gradients-container {
+    filter: url(#goo) blur(42px) saturate(110%);
+  }
+  
+  .g1 {
+    width: 60vmax;
+    height: 60vmax;
+    top: calc(50% - 30vmax);
+    left: calc(50% - 30vmax);
+  }
+  
+  .g2 {
+    width: 60vmax;
+    height: 60vmax;
+    top: calc(50% - 30vmax);
+    left: calc(50% - 30vmax);
+  }
+  
+  .g3 {
+    width: 60vmax;
+    height: 60vmax;
+    top: calc(50% - 30vmax + 160px);
+    left: calc(50% - 30vmax - 380px);
+  }
+  
+  .g4 {
+    width: 60vmax;
+    height: 60vmax;
+    top: calc(50% - 30vmax);
+    left: calc(50% - 30vmax);
+  }
+  
+  .g5 {
+    width: 100vmax;
+    height: 100vmax;
+    top: calc(50% - 50vmax);
+    left: calc(50% - 50vmax);
+  }
+  
+  .g6 {
+    width: 50vmax;
+    height: 50vmax;
+    top: -15vmax;
+    right: -14vmax;
+  }
+  
+  .g7 {
+    width: 45vmax;
+    height: 45vmax;
+    right: -12vmax;
+    bottom: -18vmax;
+  }
+  
+  body.theme-switching .container {
+    filter: blur(4px) saturate(1.02);
+    transform: scale(1.003);
+  }
+}
+
+/* Tablet and desktop - full blur */
+@media (min-width: 769px) {
+  .gradients-container {
+    filter: url(#goo) blur(58px) saturate(120%);
+  }
+}
+
+/* Very small screens - extra performance optimization */
+@media (max-width: 480px) {
+  .gradients-container {
+    filter: url(#goo) blur(32px) saturate(100%);
+  }
+  
+  .profile-enter {
+    animation-duration: 500ms !important;
+  }
+}
+
+/* Accessibility: Prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .container,
+  .gradient-bg,
+  .profile,
+  .card,
+  .project,
+  .quick-nav a,
+  .hero-btn,
+  .project-link,
+  .project-more {
+    transition: none !important;
+  }
+  
+  @keyframes profile-enter {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes click-pop {
+    to { transform: scale(1); }
+  }
+}
+

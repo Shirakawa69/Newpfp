@@ -74,11 +74,6 @@
 
   var quickNav = document.querySelector('.quick-nav');
   var quickToggle = document.querySelector('.quick-toggle');
-  var mobileForceBackTop = false;
-
-  function isMobileViewport() {
-    return window.matchMedia ? window.matchMedia('(max-width: 700px)').matches : (window.innerWidth <= 700);
-  }
   if (quickNav && quickToggle) {
     quickToggle.addEventListener('click', function () {
       var open = quickNav.classList.toggle('is-open');
@@ -90,21 +85,6 @@
     for (var m = 0; m < sectionLinks.length; m++) {
       sectionLinks[m].addEventListener('click', function (event) {
         var href = this.getAttribute('href');
-        var forceBackTopTargets = {
-          '#current-goal': true,
-          '#skills': true,
-          '#education': true,
-          '#contact': true,
-          '#socials': true
-        };
-
-        if (href && forceBackTopTargets[href] && isMobileViewport()) {
-          mobileForceBackTop = true;
-          try {
-            window.dispatchEvent(new Event('scroll'));
-          } catch (errDispatch) {
-          }
-        }
 
         if (href && href.charAt(0) === '#') {
           var target = document.querySelector(href);
@@ -179,9 +159,7 @@
       if (typeof y !== 'number') {
         y = window.pageYOffset || document.documentElement.scrollTop || 0;
       }
-      var isMobile = isMobileViewport();
-      var threshold = isMobile ? 40 : 140;
-      if (y > threshold || (mobileForceBackTop && isMobile)) {
+      if (y > 140) {
         if (backTop.className.indexOf('is-visible') === -1) {
           backTop.className += ' is-visible';
         }
@@ -191,28 +169,16 @@
     }
 
     window.addEventListener('scroll', syncBackToTopVisibility);
-    window.addEventListener('touchmove', syncBackToTopVisibility, { passive: true });
     window.addEventListener('hashchange', syncBackToTopVisibility);
     window.addEventListener('resize', syncBackToTopVisibility);
     syncBackToTopVisibility();
 
     backTop.addEventListener('click', function () {
-      mobileForceBackTop = false;
       backTop.className = backTop.className.replace(' is-visible', '').replace('is-visible', '');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
 
-  // Mobile accordion cards for personal section
-  var personalCards = document.querySelectorAll('.personal-card');
-  for (var ac = 0; ac < personalCards.length; ac++) {
-    personalCards[ac].addEventListener('click', function(e) {
-      // Don't trigger if clicking on a link inside the card
-      if (e.target.closest('a')) return;
-      
-      this.classList.toggle('is-open');
-    });
-  }
-
 })();
+
 
