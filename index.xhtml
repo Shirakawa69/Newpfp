@@ -5,1099 +5,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Profile | Zack Xavier G. Refrea</title>
-  <link rel="stylesheet" type="text/css" href="animations.css" />
-  <style type="text/css">
-    :root {
-      --navy: #171942;
-      --violet: #96289b;
-      --pink: #ca83ba;
-      --mist: #d6cfd1;
-      --card: #fcfbfd;
-      --text: #191d35;
-      --muted: #54506d;
-      --line: #d6c7d6;
-      --shadow: 0 18px 42px rgba(23, 25, 66, 0.28);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: "Segoe UI", "Trebuchet MS", Verdana, sans-serif;
-      color: var(--text);
-      min-height: 100vh;
-      line-height: 1.6;
-      padding: 24px;
-      background:
-        radial-gradient(circle at 10% 15%, rgba(202, 131, 186, 0.2), transparent 40%),
-        radial-gradient(circle at 95% 0%, rgba(150, 40, 155, 0.24), transparent 35%),
-        linear-gradient(165deg, #11123a 0%, #1c1e50 45%, #7e2a88 100%);
-    }
-
-    .container {
-      max-width: 1180px;
-      margin: 0 auto;
-    }
-
-    .profile {
-      overflow: hidden;
-      border-radius: 20px;
-      background: var(--card);
-      border: 1px solid rgba(214, 199, 214, 0.8);
-      box-shadow: var(--shadow);
-    }
-
-    .hero {
-      position: relative;
-      padding: 88px 34px 26px;
-      border-bottom: 1px solid var(--line);
-      background: linear-gradient(145deg, #f6eef7 0%, #f0d8ea 58%, #e5dce0 100%);
-    }
-
-    .quick-nav {
-      position: absolute;
-      top: 34px;
-      right: 34px;
-      z-index: 6;
-      display: inline-flex;
-      gap: 8px;
-      align-items: center;
-      padding: 8px 10px;
-      border: 1px solid #cfb3cb;
-      border-radius: 12px;
-      background: rgba(255, 255, 255, 0.58);
-      width: auto;
-      max-width: 100%;
-    }
-
-    .quick-nav a {
-      font-size: 0.84rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.4px;
-      color: #422055;
-      background: rgba(255, 255, 255, 0.82);
-      border: 1px solid #c8a8c4;
-      border-radius: 999px;
-      padding: 7px 13px;
-      text-decoration: none;
-    }
-
-    .quick-nav a:hover {
-      background: #f3def0;
-    }
-
-    .quick-toggle {
-      display: inline-flex;
-      margin-left: auto;
-      border: 1px solid #c8a8c4;
-      background: #f7e9f5;
-      color: #5d2a66;
-      border-radius: 10px;
-      width: 46px;
-      height: 42px;
-      cursor: pointer;
-      align-items: center;
-      justify-content: center;
-      padding: 0;
-      position: relative;
-    }
-
-    .quick-toggle .bar {
-      position: absolute;
-      width: 18px;
-      height: 2px;
-      background: #5d2a66;
-      border-radius: 2px;
-      transition: transform 200ms ease, opacity 180ms ease;
-      pointer-events: none;
-    }
-
-    .quick-toggle .bar:nth-child(1) {
-      transform: translateY(-6px);
-    }
-
-    .quick-toggle .bar:nth-child(2) {
-      transform: translateY(0);
-    }
-
-    .quick-toggle .bar:nth-child(3) {
-      transform: translateY(6px);
-    }
-
-    .quick-toggle.is-open .bar:nth-child(1) {
-      transform: rotate(45deg);
-    }
-
-    .quick-toggle.is-open .bar:nth-child(2) {
-      opacity: 0;
-      transform: scaleX(0);
-    }
-
-    .quick-toggle.is-open .bar:nth-child(3) {
-      transform: rotate(-45deg);
-    }
-
-    .quick-links {
-      display: none;
-      flex-direction: column;
-      gap: 8px;
-      align-items: stretch;
-      position: absolute;
-      top: calc(100% + 8px);
-      right: 0;
-      min-width: 200px;
-      padding: 10px;
-      border: 1px solid #cfb3cb;
-      border-radius: 12px;
-      background: rgba(255, 255, 255, 0.95);
-      box-shadow: 0 10px 22px rgba(38, 16, 56, 0.15);
-      z-index: 7;
-    }
-
-    .quick-nav .menu-label {
-      display: none;
-    }
-
-    .quick-nav.is-open .quick-links {
-      display: flex;
-    }
-
-    .quick-links a {
-      text-align: left;
-    }
-
-    .quick-links .theme-toggle {
-      text-align: left;
-      font-size: 0.84rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.4px;
-      color: #422055;
-      background: rgba(255, 255, 255, 0.82);
-      border: 1px solid #c8a8c4;
-      border-radius: 999px;
-      padding: 7px 13px;
-      cursor: pointer;
-    }
-
-    .hero svg.bg {
-      position: absolute;
-      right: -16px;
-      top: -8px;
-      width: 230px;
-      height: 170px;
-      opacity: 0.28;
-      pointer-events: none;
-    }
-
-    .top {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .avatar {
-      width: 96px;
-      height: 96px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #ffffff;
-      font-size: 30px;
-      font-weight: 700;
-      flex-shrink: 0;
-      background: linear-gradient(135deg, var(--navy), var(--violet));
-      box-shadow: 0 12px 24px rgba(23, 25, 66, 0.32);
-      overflow: hidden;
-      border: 2px solid rgba(255, 255, 255, 0.95);
-    }
-
-    .avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .avatar a {
-      display: block;
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      overflow: hidden;
-    }
-
-    h1 {
-      font-size: 2rem;
-      line-height: 1.1;
-      letter-spacing: 0.2px;
-      margin-bottom: 6px;
-    }
-
-    .headline {
-      color: var(--muted);
-      font-size: 1.02rem;
-      font-weight: 600;
-    }
-
-    .meta {
-      margin-top: 14px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      padding: 7px 12px;
-      border-radius: 999px;
-      border: 1px solid #b88cb2;
-      background: #f5e7f2;
-      color: #4a2155;
-      font-size: 0.9rem;
-      font-weight: 600;
-      white-space: nowrap;
-    }
-
-    .tech-strip {
-      margin-top: 12px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .tech-chip {
-      border: 1px solid #bea1bc;
-      background: #efe2ed;
-      color: #48244f;
-      padding: 4px 10px;
-      border-radius: 999px;
-      font-size: 0.8rem;
-      font-weight: 700;
-    }
-
-    .hero-actions {
-      margin-top: 14px;
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      border: 1px solid #b88cb2;
-      background: #f6e8f3;
-      color: #4a2155;
-      padding: 7px 12px;
-      border-radius: 999px;
-      font-size: 0.88rem;
-      font-weight: 700;
-      text-decoration: none;
-    }
-
-    .back-to-top {
-      position: fixed;
-      right: 16px;
-      bottom: 16px;
-      width: 44px;
-      height: 44px;
-      border: 1px solid #be95ba;
-      background: #f8ebf6;
-      color: #5d2a66;
-      border-radius: 999px;
-      font-size: 20px;
-      font-weight: 800;
-      line-height: 1;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      z-index: 1000;
-      box-shadow: 0 8px 20px rgba(38, 16, 56, 0.2);
-    }
-
-    .back-to-top.is-visible {
-      display: inline-flex;
-    }
-
-    .card.nav-focus {
-      border-color: #8a3e95 !important;
-      box-shadow: 0 0 0 3px rgba(150, 40, 155, 0.22), 0 12px 24px rgba(36, 18, 54, 0.18);
-      animation: section-pulse 900ms ease;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: 1.45fr 1fr;
-      gap: 24px;
-      padding: 30px 34px 34px;
-      background: linear-gradient(180deg, #fdfafd 0%, #f7f3f8 100%);
-    }
-
-    .card {
-      border: 1px solid #e2d5e0;
-      border-radius: 14px;
-      padding: 18px;
-      background: #fffefe;
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 10px;
-    }
-
-
-    .project {
-      border: 1px solid #dec7dc;
-      background: linear-gradient(160deg, #ffffff 0%, #fbf4fa 100%);
-      border-radius: 12px;
-      padding: 14px;
-    }
-
-    .project h3 {
-      font-size: 1rem;
-      color: #20153f;
-      margin-bottom: 6px;
-    }
-
-    .life-card {
-      position: relative;
-      overflow: hidden;
-      background: linear-gradient(155deg, #fff7fe 0%, #f7ebf6 52%, #f0e5ef 100%);
-    }
-
-    .life-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      border: 1px solid #c8a2c4;
-      background: #f7e8f4;
-      color: #57255e;
-      border-radius: 999px;
-      padding: 6px 12px;
-      font-size: 0.8rem;
-      font-weight: 800;
-      letter-spacing: 0.3px;
-      text-transform: uppercase;
-    }
-
-    .life-layout {
-      display: grid;
-      grid-template-columns: 1.25fr 1fr;
-      gap: 14px;
-      align-items: stretch;
-      margin-top: 12px;
-    }
-
-    .life-main-photo {
-      position: relative;
-      border-radius: 14px;
-      overflow: hidden;
-      border: 1px solid #cfb0cb;
-      box-shadow: 0 12px 24px rgba(41, 16, 56, 0.16);
-      text-decoration: none;
-      min-height: 280px;
-      display: block;
-      cursor: zoom-in;
-    }
-
-    .life-main-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .life-main-caption {
-      position: absolute;
-      left: 12px;
-      bottom: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.42);
-      background: rgba(22, 14, 40, 0.62);
-      color: #ffffff;
-      border-radius: 999px;
-      padding: 6px 12px;
-      font-size: 0.8rem;
-      font-weight: 700;
-      backdrop-filter: blur(2px);
-    }
-
-    .life-story {
-      border: 1px solid #d8bfd5;
-      border-radius: 12px;
-      background: rgba(255, 255, 255, 0.78);
-      padding: 12px;
-    }
-
-    .life-story p {
-      font-size: 0.95rem;
-      color: #342744;
-    }
-
-    .life-story p + p {
-      margin-top: 9px;
-    }
-
-    .life-collage {
-      margin-top: 12px;
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 9px;
-    }
-
-    .life-subtitle {
-      margin-top: 12px;
-      margin-bottom: 8px;
-      color: #5a2c62;
-      font-size: 0.82rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.4px;
-    }
-
-    .life-photo {
-      display: block;
-      border-radius: 11px;
-      overflow: hidden;
-      border: 1px solid #cfb0cb;
-      background: #eee7ef;
-      text-decoration: none;
-      box-shadow: 0 7px 16px rgba(36, 18, 54, 0.14);
-      cursor: zoom-in;
-    }
-
-    .life-photo img {
-      display: block;
-      width: 100%;
-      height: 120px;
-      object-fit: cover;
-    }
-
-    .life-collage .life-photo {
-      position: relative;
-    }
-
-    .life-collage .life-photo img {
-      filter: saturate(0.72) contrast(0.9) blur(1.2px);
-      transform: scale(1.03);
-      transition: filter 220ms ease, transform 220ms ease;
-    }
-
-    .life-collage .life-photo::after {
-      content: "Open";
-      position: absolute;
-      right: 8px;
-      bottom: 8px;
-      border: 1px solid rgba(255, 255, 255, 0.55);
-      background: rgba(20, 12, 40, 0.58);
-      color: #ffffff;
-      border-radius: 999px;
-      padding: 4px 8px;
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.3px;
-    }
-
-    .life-collage .life-photo:hover img {
-      filter: saturate(0.85) contrast(0.95) blur(0.6px);
-      transform: scale(1.01);
-    }
-
-    .life-photo.is-wide {
-      grid-column: span 2;
-    }
-
-    .about-note {
-      margin-top: 10px;
-      border: 1px dashed #cfb0cb;
-      border-radius: 10px;
-      background: #fbf2f9;
-      padding: 9px 10px;
-      color: #4a2a57;
-      font-size: 0.9rem;
-    }
-
-    .about-note strong {
-      color: #41214d;
-    }
-
-    .fun-fact-text {
-      display: inline-block;
-      transition: opacity 220ms ease;
-    }
-
-    .quote-list {
-      margin-top: 8px;
-      display: grid;
-      gap: 6px;
-    }
-
-    .quote-line {
-      border-left: 3px solid #b27aad;
-      padding-left: 8px;
-      color: #4c2857;
-      font-style: italic;
-      font-weight: 600;
-      font-size: 0.88rem;
-    }
-
-    .preview {
-      margin-bottom: 10px;
-      border-radius: 10px;
-      overflow: hidden;
-      border: 1px solid #dac3d7;
-      background: #eee7ef;
-    }
-
-    .preview svg {
-      display: block;
-      width: 100%;
-      height: 92px;
-    }
-
-    .preview a {
-      display: block;
-      text-decoration: none;
-      cursor: zoom-in;
-    }
-
-    .modal {
-      position: fixed;
-      inset: 0;
-      background: rgba(12, 9, 28, 0.72);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      z-index: 999;
-    }
-
-    .modal:target {
-      display: flex;
-    }
-
-    .modal-backdrop {
-      position: absolute;
-      inset: 0;
-      display: block;
-    }
-
-    .modal-content {
-      position: relative;
-      width: min(1100px, 96vw);
-      max-height: 90vh;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid #c9a6c5;
-      background: #121638;
-      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
-      z-index: 1;
-    }
-
-    .modal img {
-      display: block;
-      width: 100%;
-      max-height: 90vh;
-      object-fit: contain;
-      background: #0f1330;
-    }
-
-    .modal-close {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      width: 34px;
-      height: 34px;
-      border: 1px solid #d2bdd0;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.92);
-      color: #2e224f;
-      font-size: 20px;
-      line-height: 32px;
-      text-align: center;
-      cursor: pointer;
-      text-decoration: none;
-    }
-
-    .project p {
-      font-size: 0.94rem;
-      color: #3f355d;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-
-    .stack {
-      margin-top: 10px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .bubble {
-      border: 1px solid #be95ba;
-      background: #f4e5f1;
-      color: #52235f;
-      padding: 4px 10px;
-      border-radius: 999px;
-      font-size: 0.8rem;
-      font-weight: 600;
-    }
-
-    .project-actions {
-      margin-top: 12px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .project-toggle,
-    .project-more {
-      border: 1px solid #b88cb2;
-      background: #f4e7f2;
-      color: #52235f;
-      border-radius: 999px;
-      padding: 6px 12px;
-      font-size: 0.82rem;
-      font-weight: 700;
-      cursor: pointer;
-      text-decoration: none;
-    }
-
-    .project-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid #b88cb2;
-      background: #f9edf7;
-      color: #5a2360;
-      border-radius: 999px;
-      padding: 6px 12px;
-      font-size: 0.82rem;
-      font-weight: 700;
-      text-decoration: none;
-    }
-
-    .project-details {
-      display: none;
-      margin-top: 10px;
-      border: 1px solid #e1d1df;
-      background: #fff9fe;
-      border-radius: 10px;
-      padding: 10px;
-      font-size: 0.9rem;
-      color: #3f355d;
-    }
-
-    .project-details.is-open {
-      display: block;
-    }
-
-    .modal-info {
-      padding: 18px;
-      color: #e9e8ff;
-      font-size: 0.94rem;
-      line-height: 1.6;
-      max-height: 90vh;
-      overflow: auto;
-    }
-
-    .modal-info h3 {
-      color: #ffffff;
-      font-size: 1.05rem;
-      margin-bottom: 8px;
-    }
-
-    .modal-info ul {
-      margin: 0;
-      list-style: none;
-    }
-
-    .modal-info li {
-      border: 0;
-      color: #d8d8ff;
-      padding: 5px 0;
-    }
-
-    .project-details ul {
-      margin: 0;
-      list-style: none;
-    }
-
-    .project-details li {
-      border: 0;
-      padding: 4px 0;
-      color: #3f355d;
-      font-size: 0.9rem;
-    }
-
-    .project-details li:hover {
-      padding-left: 0;
-      color: #3f355d;
-    }
-
-    .copy-btn {
-      margin-left: 8px;
-      border: 1px solid #be95ba;
-      background: #f5e6f3;
-      color: #5a2462;
-      border-radius: 999px;
-      padding: 3px 8px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    .copy-status {
-      margin-left: 6px;
-      font-size: 0.75rem;
-      color: #7d2f83;
-      font-weight: 700;
-    }
-
-    h2 {
-      font-size: 1.04rem;
-      margin-bottom: 10px;
-      color: #271947;
-    }
-
-    p {
-      color: #33344f;
-      font-size: 0.98rem;
-    }
-
-    ul {
-      list-style: none;
-      margin-top: 10px;
-    }
-
-    li {
-      padding: 9px 0;
-      border-bottom: 1px dashed #e5d5e3;
-      color: #2e2948;
-      font-size: 0.95rem;
-    }
-
-    li:last-child {
-      border-bottom: 0;
-      padding-bottom: 0;
-    }
-
-    .contact a {
-      color: #6f1f78;
-      text-decoration: none;
-      border-bottom: 1px dotted #6f1f78;
-    }
-
-    .contact a:hover {
-      color: #4d1555;
-      border-bottom-color: #4d1555;
-    }
-
-    .socials-list li {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .social-icon {
-      width: 16px;
-      height: 16px;
-      display: inline-block;
-      flex-shrink: 0;
-      color: #6f1f78;
-    }
-
-    .footer {
-      text-align: center;
-      font-size: 0.9rem;
-      color: #51456a;
-      border-top: 1px solid var(--line);
-      background: #f3edf2;
-      padding: 18px;
-    }
-
-    body.theme-dark {
-      color: #ececff;
-      background:
-        radial-gradient(circle at 12% 15%, rgba(91, 94, 189, 0.2), transparent 40%),
-        radial-gradient(circle at 95% 0%, rgba(86, 40, 122, 0.24), transparent 35%),
-        linear-gradient(165deg, #0a0d21 0%, #121633 45%, #1f1b3a 100%);
-    }
-
-    body.theme-dark .profile {
-      background: #0f1328;
-      border-color: rgba(116, 123, 171, 0.44);
-    }
-
-    body.theme-dark .hero {
-      background: linear-gradient(145deg, #171d3f 0%, #1f2148 58%, #25213f 100%);
-      border-bottom-color: #39406b;
-    }
-
-    body.theme-dark .quick-nav {
-      background: rgba(17, 22, 48, 0.78);
-      border-color: #464f80;
-    }
-
-    body.theme-dark .quick-nav a,
-    body.theme-dark .quick-links .theme-toggle {
-      background: #1f2753;
-      border-color: #55619b;
-      color: #e8e9ff;
-    }
-
-    body.theme-dark .quick-nav a:hover {
-      background: #273165;
-    }
-
-    body.theme-dark .quick-toggle {
-      background: #202a58;
-      border-color: #57639b;
-      color: #e8e9ff;
-    }
-
-    body.theme-dark .quick-toggle .bar {
-      background: #e8e9ff;
-    }
-
-    body.theme-dark .headline,
-    body.theme-dark p,
-    body.theme-dark li {
-      color: #d6daff;
-    }
-
-    body.theme-dark .grid {
-      background: linear-gradient(180deg, #121734 0%, #161d3b 100%);
-    }
-
-    body.theme-dark .card,
-    body.theme-dark .project {
-      background: #1a2142;
-      border-color: #424f84;
-    }
-
-    body.theme-dark h1,
-    body.theme-dark h2,
-    body.theme-dark .project h3 {
-      color: #f0f1ff;
-    }
-
-    body.theme-dark .pill,
-    body.theme-dark .tech-chip,
-    body.theme-dark .bubble,
-    body.theme-dark .hero-btn,
-    body.theme-dark .project-link,
-    body.theme-dark .project-more,
-    body.theme-dark .copy-btn {
-      background: #263062;
-      border-color: #5a68a8;
-      color: #e8ebff;
-    }
-
-    body.theme-dark .about-note,
-    body.theme-dark .life-story {
-      background: rgba(31, 39, 74, 0.86);
-      border-color: #4d5b94;
-      color: #dfe3ff;
-    }
-
-    body.theme-dark .about-note strong,
-    body.theme-dark .life-subtitle {
-      color: #f0f2ff;
-    }
-
-    body.theme-dark .quote-line {
-      color: #e4e7ff;
-      border-left-color: #7e8ed2;
-    }
-
-    body.theme-dark .footer {
-      background: #121733;
-      border-top-color: #3c4678;
-      color: #cfd6ff;
-    }
-
-    body.theme-dark .contact a {
-      color: #cdd4ff;
-      border-bottom-color: #cdd4ff;
-    }
-
-    @media (max-width: 880px) {
-      .grid {
-        grid-template-columns: 1fr;
-      }
-
-      .projects-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-
-      .life-layout {
-        grid-template-columns: 1fr;
-      }
-
-      .life-collage {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .life-main-photo {
-        min-height: 230px;
-      }
-
-      .life-photo img {
-        height: 135px;
-      }
-    }
-
-    @media (max-width: 640px) {
-      body {
-        padding: 12px;
-      }
-
-      .hero,
-      .grid {
-        padding: 22px;
-      }
-
-      .hero {
-        padding-top: 22px;
-      }
-
-      .hero {
-        position: relative;
-      }
-
-      .quick-nav {
-        position: relative;
-        top: auto;
-        right: auto;
-        margin-bottom: 14px;
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 8px;
-        justify-content: flex-start;
-        padding: 8px 9px;
-      }
-
-      .quick-toggle {
-        margin-left: auto;
-        width: 40px;
-        height: 38px;
-      }
-
-      .quick-nav .menu-label {
-        display: inline-flex;
-        align-items: center;
-        font-size: 0.76rem;
-        font-weight: 800;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        color: #5d2a66;
-        padding: 6px 10px;
-        border-radius: 999px;
-        border: 1px solid #c8a8c4;
-        background: #f7e9f5;
-      }
-
-      .quick-links {
-        position: static;
-        min-width: 0;
-        width: 100%;
-        margin-top: 8px;
-        padding: 10px 0 0;
-        border: 0;
-        border-top: 1px dashed #d1b7ce;
-        border-radius: 0;
-        box-shadow: none;
-        background: transparent;
-        gap: 10px;
-      }
-
-      .quick-links a {
-        width: 100%;
-        text-align: center;
-      }
-
-      .quick-links .theme-toggle {
-        width: 100%;
-        text-align: center;
-      }
-
-      .projects-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .life-layout {
-        gap: 10px;
-      }
-
-      .life-main-photo {
-        min-height: 190px;
-        width: 100%;
-        max-width: 320px;
-        margin: 0 auto;
-      }
-
-      .life-collage {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 7px;
-        width: 100%;
-        max-width: 320px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .life-photo.is-wide {
-        grid-column: span 1;
-      }
-
-      .life-photo img {
-        height: 96px;
-      }
-
-      .life-main-caption {
-        font-size: 0.74rem;
-        padding: 5px 10px;
-      }
-
-
-      .top {
-        align-items: flex-start;
-      }
-
-      h1 {
-        font-size: 1.6rem;
-      }
-
-      .hero svg.bg {
-        width: 180px;
-        height: 130px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" type="text/css" href="animations.css?v=20260224w" />
+    <link rel="stylesheet" type="text/css" href="profile.css?v=20260224w" />
 </head>
 <body>
   <div class="gradient-bg" aria-hidden="true">
@@ -1134,9 +43,11 @@
           </button>
           <div class="quick-links">
             <a href="#about">About</a>
-            <a href="#life">Life</a>
             <a href="#projects">Projects</a>
+            <a href="#current-goal">Current Goal</a>
             <a href="#skills">Skills</a>
+            <a href="#education">Education</a>
+            <a href="#info-personal">Personal</a>
             <a href="#contact">Contact</a>
             <a href="#socials">Socials</a>
             <button type="button" class="theme-toggle" aria-pressed="false">Dark Mode</button>
@@ -1158,7 +69,7 @@
           <div class="avatar"><a href="#modal-profile"><img src="pic/Profilepic.jpg" alt="Profile photo of Zack Xavier G. Refrea" /></a></div>
           <div>
             <h1>Zack Xavier G. Refrea</h1>
-            <p class="headline">College Student at LSPU | BSIT SMP | Frontend and Backend Web Developer</p>
+            <p class="headline">BSIT-SMP Student at LSPU | Frontend and Backend Web Developer</p>
           </div>
         </div>
 
@@ -1196,50 +107,13 @@
           <div class="card" id="about">
             <h2>About Me</h2>
             <p>
-              I am Zack Xavier G. Refrea, a BSIT SMP student at LSPU. I enjoy building modern web applications from interface to server logic, with focus on readable code, clean layouts, and smooth user experience.
+              I am Zack Xavier G. Refrea, a BSIT-SMP student at LSPU. I enjoy building modern web applications from interface to backend logic, with a focus on readable code, clean layouts, and smooth user experience.
             </p>
             <div class="about-note">
-              <strong>Fun fact:</strong> <span class="fun-fact-text" data-facts="I am a very big gamer.||I get ultra-competitive in Valorant.||Im a Bit Racist ngl||If Your Ass At games im gonna slur the shit out of you.">I am a very big gamer.</span>
+              <strong>Fun fact:</strong> <span class="fun-fact-text" data-facts="I am a huge gamer.||I get ultra-competitive in Valorant.||I enjoy learning by building real projects.||I like balancing clean UI with backend logic.">I am a huge gamer.</span>
               <div class="quote-list">
                 <div class="quote-line">"it is what it is"</div>
               </div>
-            </div>
-          </div>
-
-          <div class="card life-card" id="life" style="margin-top: 16px;">
-            <h2>Life Story</h2>
-            <span class="life-badge">Childhood and Journey</span>
-            <div class="life-layout">
-              <a class="life-main-photo" href="#modal-kid1">
-                <img src="pic/pic1.jpg" alt="Childhood photo 1 of Zack Xavier G. Refrea" />
-                <span class="life-main-caption">Tap to open memory</span>
-              </a>
-              <div class="life-story">
-                <p>
-                  I did not grow up around many gadgets. Because I did not have easy access before, I became even more interested in computers, apps, and how websites actually work behind the screen.
-                </p>
-                <p>
-                  When I finally got the chance to explore tech deeper, I treated every project as a chance to learn. School tasks, team projects, and random builds helped me improve my coding logic, design sense, and confidence.
-                </p>
-                <p>
-                  These childhood photos are my reminder of where I started. They keep me grounded and motivated to keep building better web apps that are useful, clean, and personal.
-                </p>
-              </div>
-            </div>
-            <div class="life-subtitle">More childhood photos</div>
-            <div class="life-collage">
-              <a class="life-photo is-wide" href="#modal-kid2">
-                <img src="pic/pic2.jpg" alt="Childhood photo 2 of Zack Xavier G. Refrea" />
-              </a>
-              <a class="life-photo" href="#modal-kid3">
-                <img src="pic/pic3.jpg" alt="Childhood photo 3 of Zack Xavier G. Refrea" />
-              </a>
-              <a class="life-photo" href="#modal-kid4">
-                <img src="pic/pic4.jpg" alt="Childhood photo 4 of Zack Xavier G. Refrea" />
-              </a>
-              <a class="life-photo is-wide" href="#modal-kid5">
-                <img src="pic/pic5.jpg" alt="Childhood photo 5 of Zack Xavier G. Refrea" />
-              </a>
             </div>
           </div>
 
@@ -1375,7 +249,7 @@
             </div>
           </div>
 
-          <div class="card" style="margin-top: 16px;">
+          <div class="card" id="current-goal" style="margin-top: 16px;">
             <h2>Current Goal</h2>
             <p>
               To keep improving as a full-stack developer by building practical and personal projects that solve real user problems.
@@ -1394,7 +268,7 @@
             </ul>
           </div>
 
-          <div class="card" style="margin-top: 16px;">
+          <div class="card" id="education" style="margin-top: 16px;">
             <h2>Education</h2>
             <ul>
               <li><strong>Elementary:</strong> Lopez Elementary School</li>
@@ -1514,6 +388,98 @@
       <img src="pic/pic5.jpg" alt="Childhood photo 5 of Zack Xavier G. Refrea" />
     </div>
   </div>
+  <div class="modal" id="modal-mompic">
+    <a href="#" class="modal-backdrop" aria-label="Close family image popup"></a>
+    <div class="modal-content">
+      <a href="#" class="modal-close" aria-label="Close family image popup">&times;</a>
+      <img src="pic/mompic.jpg" alt="Photo of my mom" />
+    </div>
+  </div>
+  <div class="modal" id="modal-grandma">
+    <a href="#" class="modal-backdrop" aria-label="Close family image popup"></a>
+    <div class="modal-content">
+      <a href="#" class="modal-close" aria-label="Close family image popup">&times;</a>
+      <img src="pic/grandma.jpg" alt="Photo of my grandma" />
+    </div>
+  </div>
+  <div class="modal" id="modal-cousins">
+    <a href="#" class="modal-backdrop" aria-label="Close family image popup"></a>
+    <div class="modal-content">
+      <a href="#" class="modal-close" aria-label="Close family image popup">&times;</a>
+      <img src="pic/cousins.jpg" alt="Cousins photo" />
+    </div>
+  </div>
+  <div class="modal" id="modal-cousinsfam">
+    <a href="#" class="modal-backdrop" aria-label="Close family image popup"></a>
+    <div class="modal-content">
+      <a href="#" class="modal-close" aria-label="Close family image popup">&times;</a>
+      <img src="pic/cousinsfam.jpg" alt="Cousins and family photo" />
+    </div>
+  </div>
+  <div class="modal" id="modal-fampic1">
+    <a href="#" class="modal-backdrop" aria-label="Close family image popup"></a>
+    <div class="modal-content">
+      <a href="#" class="modal-close" aria-label="Close family image popup">&times;</a>
+      <img src="pic/fampic1.jpg" alt="Childhood memory photo 1" />
+    </div>
+  </div>
+  <div class="modal" id="modal-fampic5">
+    <a href="#" class="modal-backdrop" aria-label="Close family image popup"></a>
+    <div class="modal-content">
+      <a href="#" class="modal-close" aria-label="Close family image popup">&times;</a>
+      <img src="pic/fampic5.jpg" alt="Childhood memory photo 5" />
+    </div>
+  </div>
+  <div class="modal" id="modal-fampic2">
+    <a href="#" class="modal-backdrop" aria-label="Close family image popup"></a>
+    <div class="modal-content">
+      <a href="#" class="modal-close" aria-label="Close family image popup">&times;</a>
+      <img src="pic/fampic2.jpg" alt="Childhood memory photo 2" />
+    </div>
+  </div>
+  <div class="modal" id="modal-fampic3">
+    <a href="#" class="modal-backdrop" aria-label="Close family image popup"></a>
+    <div class="modal-content">
+      <a href="#" class="modal-close" aria-label="Close family image popup">&times;</a>
+      <img src="pic/fampic3.jpg" alt="Childhood memory photo 3" />
+    </div>
+  </div>
+  <div class="modal" id="modal-fampic4">
+    <a href="#" class="modal-backdrop" aria-label="Close family image popup"></a>
+    <div class="modal-content">
+      <a href="#" class="modal-close" aria-label="Close family image popup">&times;</a>
+      <img src="pic/fampic4.jpg" alt="Childhood memory photo 4" />
+    </div>
+  </div>
+  <div class="modal" id="modal-fampic6">
+    <a href="#" class="modal-backdrop" aria-label="Close family image popup"></a>
+    <div class="modal-content">
+      <a href="#" class="modal-close" aria-label="Close family image popup">&times;</a>
+      <img src="pic/FAmpic6.jpg" alt="Family photo memory 6" />
+    </div>
+  </div>
+  <div class="modal" id="modal-starrail">
+    <a href="#" class="modal-backdrop" aria-label="Close game image popup"></a>
+    <div class="modal-content">
+      <a href="#" class="modal-close" aria-label="Close game image popup">&times;</a>
+      <img src="pic/star raillogo.png" alt="Honkai Star Rail logo image" />
+    </div>
+  </div>
+  <div class="modal" id="modal-valorant">
+    <a href="#" class="modal-backdrop" aria-label="Close game image popup"></a>
+    <div class="modal-content">
+      <a href="#" class="modal-close" aria-label="Close game image popup">&times;</a>
+      <img src="pic/valorantLOG.jpg" alt="Valorant logo image" />
+    </div>
+  </div>
+  <div class="modal" id="modal-minecraft">
+    <a href="#" class="modal-backdrop" aria-label="Close game image popup"></a>
+    <div class="modal-content">
+      <a href="#" class="modal-close" aria-label="Close game image popup">&times;</a>
+      <img src="pic/minecraftlogo.png" alt="Minecraft logo image" />
+    </div>
+  </div>
+
   <div class="modal" id="info-clinic">
     <a href="#" class="modal-backdrop" aria-label="Close project details"></a>
     <div class="modal-content">
@@ -1581,7 +547,218 @@
       </div>
     </div>
   </div>
+  <div class="modal personal-modal" id="info-personal">
+    <a href="#" class="modal-backdrop" aria-label="Close personal sections"></a>
+    <div class="modal-content">
+      <a href="#" class="modal-close" aria-label="Close personal sections">&times;</a>
+      <div class="personal-shell">
+        <div class="personal-decor personal-decor-1"></div>
+        <div class="personal-decor personal-decor-2"></div>
+        <div class="personal-decor personal-decor-3"></div>
+        <div class="personal-heart-field" aria-hidden="true">
+          <div class="personal-heart-particle" style="left:10%; animation-delay:0s;"></div>
+          <div class="personal-heart-particle" style="left:30%; animation-delay:0.45s;"></div>
+          <div class="personal-heart-particle" style="left:50%; animation-delay:0.9s;"></div>
+          <div class="personal-heart-particle" style="left:70%; animation-delay:0.25s;"></div>
+          <div class="personal-heart-particle" style="left:90%; animation-delay:0.7s;"></div>
+        </div>
+
+        <div class="personal-header">
+          <div class="personal-header-top">
+            <h3>Wanna Know Me More? Tap This Personal Section</h3>
+            <a href="#" class="personal-close-btn" aria-label="Close personal sections">Close</a>
+          </div>
+          <p class="personal-lead">Quick personal side-quest. Same page length, more me.</p>
+        </div>
+
+        <div class="personal-sections">
+          <div class="personal-card" data-type="family">
+            <div class="personal-card-header">
+              <div class="personal-card-icon">👨‍👩‍👧</div>
+              <h4>Family Photos</h4>
+              <span class="personal-card-toggle">▼</span>
+            </div>
+            <div class="personal-card-content">
+              <div class="personal-card-body">
+                <p>My day-one support system. They keep me grounded and locked in.</p>
+              </div>
+            </div>
+          </div>
+          <div class="personal-card" data-type="cousins">
+            <div class="personal-card-header">
+              <div class="personal-card-icon">🤝</div>
+              <h4>Cousins</h4>
+              <span class="personal-card-toggle">▼</span>
+            </div>
+            <div class="personal-card-content">
+              <div class="personal-card-body">
+                <p>Core circle energy. Good vibes, fun chaos, and solid memories.</p>
+              </div>
+            </div>
+          </div>
+          <div class="personal-card" data-type="hobbies">
+            <div class="personal-card-header">
+              <div class="personal-card-icon">🎮</div>
+              <h4>Hobbies</h4>
+              <span class="personal-card-toggle">▼</span>
+            </div>
+            <div class="personal-card-content">
+              <div class="personal-card-body">
+                <div class="mini-chips">
+                  <span>Reading Manga</span>
+                  <span>Reading Manhwa</span>
+                  <span>Reading Donghua</span>
+                  <span>Watching Anime</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="personal-card" data-type="games">
+            <div class="personal-card-header">
+              <div class="personal-card-icon">🕹️</div>
+              <h4>Games I Like</h4>
+              <span class="personal-card-toggle">▼</span>
+            </div>
+            <div class="personal-card-content">
+              <div class="personal-card-body">
+                <div class="game-likes">
+                  <a href="#modal-starrail" class="game-like game-like--starrail">
+                    <img src="pic/star raillogo.png" alt="Honkai Star Rail logo" />
+                    <span>Star Rail</span>
+                  </a>
+                  <a href="#modal-valorant" class="game-like game-like--valorant">
+                    <img src="pic/valorantLOG.jpg" alt="Valorant logo" />
+                    <span>Valorant</span>
+                  </a>
+                  <a href="#modal-minecraft" class="game-like game-like--minecraft">
+                    <img src="pic/minecraftlogo.png" alt="Minecraft logo" />
+                    <span>Minecraft</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="personal-card" data-type="goals">
+            <div class="personal-card-header">
+              <div class="personal-card-icon">🎯</div>
+              <h4>Life Goals and Dreams</h4>
+              <span class="personal-card-toggle">▼</span>
+            </div>
+            <div class="personal-card-content">
+              <div class="personal-card-body">
+                <p>BE RICH AND BE RICH.</p>
+              </div>
+            </div>
+          </div>
+          <div class="personal-card" data-type="inspiration">
+            <div class="personal-card-header">
+              <div class="personal-card-icon">💡</div>
+              <h4>Inspirations</h4>
+              <span class="personal-card-toggle">▼</span>
+            </div>
+            <div class="personal-card-content">
+              <div class="personal-card-body">
+                <p>Johnny Sins, because he proved that when family needs you, you become whatever the moment demands.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="personal-gallery">
+          <div class="personal-gallery-header">
+            <span class="personal-gallery-title">Photo Memories</span>
+            <span class="personal-gallery-count">14 Photos</span>
+          </div>
+          <div class="personal-gallery-groups">
+            <div class="personal-photo-group is-active" data-group="family">
+              <div class="personal-photo-head">
+                <h5>Family</h5>
+                <span>3</span>
+              </div>
+              <div class="personal-gallery-grid">
+                <a href="#modal-mompic">
+                  <img src="pic/mompic.jpg" alt="Photo of my mom" />
+                  <div class="personal-gallery-overlay"><span>View</span></div>
+                </a>
+                <a href="#modal-grandma">
+                  <img src="pic/grandma.jpg" alt="Photo of my grandma" />
+                  <div class="personal-gallery-overlay"><span>View</span></div>
+                </a>
+                <a href="#modal-fampic6">
+                  <img src="pic/FAmpic6.jpg" alt="Family photo memory 6" />
+                  <div class="personal-gallery-overlay"><span>View</span></div>
+                </a>
+              </div>
+            </div>
+
+            <div class="personal-photo-group" data-group="cousins">
+              <div class="personal-photo-head">
+                <h5>Cousins</h5>
+                <span>2</span>
+              </div>
+              <div class="personal-gallery-grid">
+                <a href="#modal-cousinsfam">
+                  <img src="pic/cousinsfam.jpg" alt="Cousins and family photo" />
+                  <div class="personal-gallery-overlay"><span>View</span></div>
+                </a>
+                <a href="#modal-cousins">
+                  <img src="pic/cousins.jpg" alt="Cousins photo" />
+                  <div class="personal-gallery-overlay"><span>View</span></div>
+                </a>
+              </div>
+            </div>
+
+            <div class="personal-photo-group" data-group="childhood">
+              <div class="personal-photo-head">
+                <h5>Childhood</h5>
+                <span>9</span>
+              </div>
+              <div class="personal-gallery-grid">
+                <a href="#modal-fampic1">
+                  <img src="pic/fampic1.jpg" alt="Childhood memory photo 1" />
+                  <div class="personal-gallery-overlay"><span>View</span></div>
+                </a>
+                <a href="#modal-fampic2">
+                  <img src="pic/fampic2.jpg" alt="Childhood memory photo 2" />
+                  <div class="personal-gallery-overlay"><span>View</span></div>
+                </a>
+                <a href="#modal-fampic3">
+                  <img src="pic/fampic3.jpg" alt="Childhood memory photo 3" />
+                  <div class="personal-gallery-overlay"><span>View</span></div>
+                </a>
+                <a href="#modal-fampic4">
+                  <img src="pic/fampic4.jpg" alt="Childhood memory photo 4" />
+                  <div class="personal-gallery-overlay"><span>View</span></div>
+                </a>
+                <a href="#modal-fampic5">
+                  <img src="pic/fampic5.jpg" alt="Childhood memory photo 5" />
+                  <div class="personal-gallery-overlay"><span>View</span></div>
+                </a>
+                <a href="#modal-kid1">
+                  <img src="pic/pic1.jpg" alt="Childhood memory photo 6" />
+                  <div class="personal-gallery-overlay"><span>View</span></div>
+                </a>
+                <a href="#modal-kid2">
+                  <img src="pic/pic2.jpg" alt="Childhood memory photo 7" />
+                  <div class="personal-gallery-overlay"><span>View</span></div>
+                </a>
+                <a href="#modal-kid3">
+                  <img src="pic/pic3.jpg" alt="Childhood memory photo 8" />
+                  <div class="personal-gallery-overlay"><span>View</span></div>
+                </a>
+                <a href="#modal-kid4">
+                  <img src="pic/pic4.jpg" alt="Childhood memory photo 9" />
+                  <div class="personal-gallery-overlay"><span>View</span></div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <button type="button" class="back-to-top" aria-label="Back to top">&#8593;</button>
-  <script type="text/javascript" src="animations.js"></script>
+  <script type="text/javascript" src="animations.js?v=20260224w"></script>
 </body>
 </html>
