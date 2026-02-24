@@ -611,6 +611,22 @@ li:last-child {
   animation: float-bounce 6s ease-in-out infinite;
 }
 
+@keyframes personal-heart-rise {
+  0% {
+    opacity: 1;
+  }
+  10% {
+    opacity: 0.95;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-700px) translateX(var(--drift, 0));
+    opacity: 0;
+  }
+}
+
 @keyframes float-rotate {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
@@ -628,8 +644,8 @@ li:last-child {
 
 .personal-header {
   position: relative;
-  z-index: 1;
-  margin-bottom: 24px;
+  z-index: 3;
+  margin-bottom: clamp(18px, 4vw, 24px);
 }
 
 .personal-header-top {
@@ -642,10 +658,16 @@ li:last-child {
 .personal-shell h3 {
   margin: 0;
   color: #2d1c44;
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 4vw, 1.5rem);
   letter-spacing: 0.5px;
   position: relative;
   display: inline-block;
+  background: linear-gradient(135deg, #96289b 0%, #d4448c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .personal-close-btn {
@@ -674,9 +696,17 @@ li:last-child {
 .personal-shell h3::after { right: -30px; }
 
 .personal-lead {
-  margin-top: 10px;
+  margin-top: clamp(8px, 2vw, 10px);
   color: #61577c;
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  position: relative;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  background: linear-gradient(90deg, rgba(150, 40, 155, 0.15), rgba(212, 44, 125, 0.1));
+  padding: clamp(8px, 2vw, 12px) clamp(12px, 3vw, 16px);
+  border-radius: 12px;
+  border-left: 3px solid #96289b;
+  display: inline-block;
 }
 
 .personal-sections {
@@ -1268,6 +1298,19 @@ body.theme-dark .personal-card h4 {
   color: #ffffff;
 }
 
+body.theme-dark .personal-shell h3 {
+  background: linear-gradient(135deg, #ff86cd 0%, #ff66b8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+body.theme-dark .personal-lead {
+  color: #d5defb;
+  background: linear-gradient(90deg, rgba(255, 99, 71, 0.15), rgba(255, 134, 205, 0.1));
+  border-left-color: #ff86cd;
+}
+
 body.theme-dark .personal-close-btn {
   border-color: rgba(114, 131, 212, 0.62);
   background: rgba(40, 53, 110, 0.8);
@@ -1420,5 +1463,4 @@ body {
     transition-duration: 0.01ms !important;
   }
 }
-
 

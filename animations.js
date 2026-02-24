@@ -179,6 +179,14 @@
     });
   }
 
-})();
+  var hearts = document.querySelectorAll('.personal-heart');
+  for (var i = 0; i < hearts.length; i++) {
+    var heart = hearts[i];
+    heart.style.left = Math.random() * 100 + '%';
+    heart.style.animationDuration = (4 + Math.random() * 4) + 's';
+    heart.style.animationDelay = (Math.random() * 5) + 's';
+    heart.style.fontSize = (14 + Math.random() * 16) + 'px';
+  }
 
+})();
 
