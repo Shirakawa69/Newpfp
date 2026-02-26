@@ -1,5 +1,5 @@
 ﻿(function () {
-  var clickable = document.querySelectorAll('.quick-nav a, .preview a, .life-photo, .life-main-photo, .pill, .tech-chip, .bubble, .modal-close, .project-more, .project-link, .copy-btn, .hero-btn, .quick-toggle, .back-to-top');
+  var clickable = document.querySelectorAll('.quick-nav a, .preview a, .life-photo, .life-main-photo, .pill, .tech-chip, .bubble, .modal-close, .modal-nav-next, .project-more, .project-link, .copy-btn, .hero-btn, .quick-toggle, .back-to-top');
   for (var i = 0; i < clickable.length; i++) {
     clickable[i].addEventListener('click', function () {
       var el = this;
@@ -188,5 +188,46 @@
     heart.style.fontSize = (14 + Math.random() * 16) + 'px';
   }
 
-})();
+  function createHeartParticles() {
+    var heartCount = 15;
+    for (var h = 0; h < heartCount; h++) {
+      (function (index) {
+        setTimeout(function () {
+          var duration = 3 + Math.random() * 4;
+          var heartEl = document.createElement('span');
+          heartEl.textContent = '❤';
+          heartEl.style.position = 'fixed';
+          heartEl.style.left = (5 + Math.random() * 90) + '%';
+          heartEl.style.bottom = '-50px';
+          heartEl.style.fontSize = (18 + Math.random() * 24) + 'px';
+          heartEl.style.color = '#ff4d8d';
+          heartEl.style.pointerEvents = 'none';
+          heartEl.style.zIndex = '99999';
+          heartEl.style.setProperty('--heart-x', (Math.random() * 80 - 40) + 'px');
+          heartEl.style.animation = 'personal-heart-rise ' + duration + 's ease-out forwards';
+          document.body.appendChild(heartEl);
 
+          setTimeout(function () {
+            if (heartEl.parentNode) {
+              document.body.removeChild(heartEl);
+            }
+          }, duration * 1000 + 500);
+        }, index * 180);
+      })(h);
+    }
+  }
+
+  var personalModal = document.querySelector('#info-personal');
+  if (personalModal) {
+    window.addEventListener('hashchange', function () {
+      if (window.location.hash === '#info-personal') {
+        createHeartParticles();
+      }
+    });
+
+    if (window.location.hash === '#info-personal') {
+      createHeartParticles();
+    }
+  }
+
+})();
